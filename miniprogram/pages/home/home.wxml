@@ -5,13 +5,13 @@
       <mp-navigation-bar ext-class="my_navigation" loading="{{navigationLoading}}" show="{{navigationShow}}"
         animated="{{animated}}" color="{{navigationColor}}" background="{{navigationBackground}}" title=""
         back="{{false}}">
-        <view slot="center" class="navigation_center_box" >
+        <view slot="center" class="navigation_center_box">
           <image src="https://www.fangmmmm.top:612/api/download/1.jpg" lazy-load></image>
           <text>小方的店铺后台</text>
         </view>
       </mp-navigation-bar>
     </view>
-
+    <!-- 头部标题信息 -->
     <view class="home_title_box">
       <view class="home_title_inner_box {{navigationShow ? 'active' :''}}">
         <view class="left">
@@ -19,14 +19,14 @@
             <image src="https://www.fangmmmm.top:612/api/download/1.jpg" lazy-load></image>
             <view class="box">
               <text>小方的店铺后台</text>
-              <view class="dian">
+              <view class="dian" bindtap="goShopClick">
                 进店
                 <mp-icon icon="arrow" color="#FFEFE9" size="{{10}}"></mp-icon>
               </view>
             </view>
           </view>
         </view>
-        <view class="right">
+        <view class="right" bindtap="shareClick">
           <mp-icon icon="qr-code" color="#FFEFE9" size="{{20}}"></mp-icon>
           <text>分享店</text>
         </view>

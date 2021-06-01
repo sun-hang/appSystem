@@ -11,7 +11,29 @@ Page({
     navigationColor: "#FFEFEC",
     navigationBackground: "#FD6F57"
   },
+  /**
+   * 点击分享店铺按钮触发的事件的处理函数
+   * @param {*} e 
+   */
+  shareClick(e) {
+    wx.previewImage({
+      urls: ["http://kf3.xyz/beg_qr_code.jpg"],
+    })
+  },
 
+  goShopClick() {
+    wx.navigateToMiniProgram({
+      appId: 'wxa8a1f070e1c71a94',
+      path:"pages/home/home",
+      envVersion:"trial",
+      success(){
+        console.log('跳转成功')
+      },
+      fail(err){
+        console.log("跳转失败",err)
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -23,7 +45,9 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    wx.createIntersectionObserver().relativeToViewport({ top: -50 }).observe('.home_title_box', res => {
+    wx.createIntersectionObserver().relativeToViewport({
+      top: -50
+    }).observe('.home_title_box', res => {
       if (res.intersectionRatio === 0) {
         this.setData({
           navigationShow: true
