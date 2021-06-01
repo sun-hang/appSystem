@@ -5,7 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    animated: false,
+    navigationShow: true,
+    navigationLoading: false,
+    navigationColor: "#FFEFEC",
+    navigationBackground: "#FD6F57"
   },
 
   /**
@@ -19,7 +23,17 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    wx.createIntersectionObserver().relativeToViewport({ top: -50 }).observe('.home_title_box', res => {
+      if (res.intersectionRatio === 0) {
+        this.setData({
+          navigationShow: true
+        })
+      } else {
+        this.setData({
+          navigationShow: false
+        })
+      }
+    })
   },
 
   /**
@@ -61,6 +75,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+
+  },
+  onPageScroll(res) {
 
   }
 })

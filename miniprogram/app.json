@@ -12,32 +12,41 @@
     "navigationBarTitleText": "小方的店铺后台",
     "navigationBarTextStyle": "black"
   },
+  "useExtendedLib": {
+    "kbone": true,
+    "weui": true
+  },
   "sitemapLocation": "sitemap.json",
   "tabBar": {
     "selectedColor": "#515151",
     "color": "#cdcdcd",
     "borderStyle": "black",
-    "list": [{
-      "pagePath": "pages/home/home",
-      "text": "首页",
-      "iconPath": "./image/home-1.png",
-      "selectedIconPath": "./image/home.png"
-    }, {
-      "pagePath": "pages/func/func",
-      "text": "功能",
-      "iconPath": "./image/list-1.png",
-      "selectedIconPath": "./image/list.png"
-    }, {
-      "pagePath": "pages/message/message",
-      "text": "消息",
-      "iconPath": "./image/message_1.png",
-      "selectedIconPath": "./image/message.png"
-    }, {
-      "pagePath": "pages/user/user",
-      "text": "我的",
-      "iconPath": "./image/user_1.png",
-      "selectedIconPath": "./image/user.png"
-    }]
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "./image/home-1.png",
+        "selectedIconPath": "./image/home.png"
+      },
+      {
+        "pagePath": "pages/func/func",
+        "text": "功能",
+        "iconPath": "./image/list-1.png",
+        "selectedIconPath": "./image/list.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息",
+        "iconPath": "./image/message_1.png",
+        "selectedIconPath": "./image/message.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "./image/user_1.png",
+        "selectedIconPath": "./image/user.png"
+      }
+    ]
   },
   "style": "v2"
 }

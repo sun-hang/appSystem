@@ -1,2 +1,67 @@
-<!--miniprogram/pages/home/home.wxml-->
-<text>miniprogram/pages/home/home.wxml</text>
+<view class="home_container">
+  <view class="home_inner_container">
+    <!-- 导航条部分 -->
+    <view class="home_header_box" style="background:#FD6F57;">
+      <mp-navigation-bar ext-class="my_navigation" loading="{{navigationLoading}}" show="{{navigationShow}}"
+        animated="{{animated}}" color="{{navigationColor}}" background="{{navigationBackground}}" title=""
+        back="{{false}}">
+        <view slot="center" class="navigation_center_box" >
+          <image src="https://www.fangmmmm.top:612/api/download/1.jpg" lazy-load></image>
+          <text>小方的店铺后台</text>
+        </view>
+      </mp-navigation-bar>
+    </view>
+
+    <view class="home_title_box">
+      <view class="home_title_inner_box {{navigationShow ? 'active' :''}}">
+        <view class="left">
+          <view class="navigation_center_box">
+            <image src="https://www.fangmmmm.top:612/api/download/1.jpg" lazy-load></image>
+            <view class="box">
+              <text>小方的店铺后台</text>
+              <view class="dian">
+                进店
+                <mp-icon icon="arrow" color="#FFEFE9" size="{{10}}"></mp-icon>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="right">
+          <mp-icon icon="qr-code" color="#FFEFE9" size="{{20}}"></mp-icon>
+          <text>分享店</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view>1</view>
+<view>2</view>
+<view>3</view>
+<view>4</view>
+<view>5</view>
+<view>6</view>
+<view>7</view>
+<view>8</view>
+<view>9</view>
+<view>10</view>
+<view>11</view>
+<view>12</view>
+<view>13</view>
+<view>14</view>
+<view>15</view>
+<view>16</view>
+<view>17</view>
+<view>18</view>
+<view>19</view>
+<view>20</view>
+<view>1</view>
+<view>2</view>
+<view>3</view>
+<view>4</view>
+<view>5</view>
+<view>6</view>
+<view>7</view>
+<view>8</view>
+<view>9</view>
+<view>10</view>
