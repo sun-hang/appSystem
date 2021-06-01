@@ -1,0 +1,22 @@
+<!--components/home/matterModel/matterModel.wxml-->
+
+<view class="home_model_item_container">
+  <view class="home_model_inner_container">
+    <view class="home_model_title_box">
+      <view class="title_left">
+        重要事项
+      </view>
+      <view class="title_right">
+        <text>{{current}}/{{contentList.length}}</text>
+      </view>
+    </view>
+    <view class="home_model_content_box">
+      <swiper circular autoplay bindchange="change">
+        <swiper-item wx:for="{{contentList}}">
+          <view>{{item.title}}</view>
+          <view>{{item.content}}</view>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+</view>

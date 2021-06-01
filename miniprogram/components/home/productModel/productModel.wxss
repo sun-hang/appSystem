@@ -1,0 +1,24 @@
+/* components/home/productModel/productModel.wxss */
+@import '../global.wxss';
+
+.home_model_content_box {
+  display: flex;
+  margin-top: 40rpx;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.home_model_content_box .content_item {
+  width: 33%;
+}
+
+.home_model_content_box .content_item .top {
+  margin-bottom: 25rpx;
+  font-size: 40rpx;
+}
+
+.home_model_content_box .content_item .bottom text {
+  color: #989898;
+  font-size: 24rpx;
+}

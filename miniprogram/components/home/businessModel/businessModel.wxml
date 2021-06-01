@@ -1,0 +1,19 @@
+<!--components/home/businessModel/businessModel.wxml-->
+
+<view class="home_model_item_container">
+  <view class="home_model_inner_container">
+    <view class="home_model_title_box">
+      <view class="title_left">
+        商家成长
+      </view>
+      <view class="title_right">
+
+      </view>
+    </view>
+    <view class="home_model_content_box">
+      <view class="content_item" bindtap="click" data-item="{{index}}" wx:key="{{item.text}}" wx:for="{{contentList}}">
+        <text>{{item.text}}</text>
+      </view>
+    </view>
+  </view>
+</view>

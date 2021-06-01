@@ -1,0 +1,27 @@
+/* components/home/dataModel/dataModel.wxss */
+@import '../global.wxss';
+
+.home_model_content_box {
+  margin-top: 40rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.home_model_content_box .content_item {
+  width: 33%;
+  text-align: center;
+}
+
+.home_model_content_box .content_item .title {
+  font-size: 26rpx;
+}
+
+.home_model_content_box .content_item .today{
+  font-size: 40rpx;
+  margin: 15rpx auto;
+}
+
+.home_model_content_box .content_item .yesterday{
+  font-size: 24rpx;
+  color: #BABABA;
+}

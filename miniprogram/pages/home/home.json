@@ -1,7 +1,23 @@
 {
   "usingComponents": {
     "mp-navigation-bar": "weui-miniprogram/navigation-bar/navigation-bar",
-    "mp-icon": "weui-miniprogram/icon/icon"
+    "mp-icon": "weui-miniprogram/icon/icon",
+    "my-business-model": "../../components/home/businessModel/businessModel",
+    "my-commerce-model": "../../components/home/commerceModel/commerceModel",
+    "my-data-model": "../../components/home/dataModel/dataModel",
+    "my-marketing-model": "../../components/home/marketingModel/marketingModel",
+    "my-matter-model": "../../components/home/matterModel/matterModel",
+    "my-order-model": "../../components/home/orderModel/orderModel",
+    "my-product-model": "../../components/home/productModel/productModel"
+  },
+  "//": {
+    "my-business-model": "商家成长模块",
+    "my-commerce-model": "带货模块",
+    "my-data-model": "数据可视化模块",
+    "my-marketing-model": "营销模块",
+    "my-matter-model": "重要事项模块",
+    "my-order-model": "订单模块",
+    "my-product-model": "商品模块"
   },
   "navigationStyle": "custom"
 }

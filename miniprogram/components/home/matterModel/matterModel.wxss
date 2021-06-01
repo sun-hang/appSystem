@@ -1,0 +1,17 @@
+/* components/home/matterModel/matterModel.wxss */
+@import '../global.wxss';
+
+.home_model_title_box .title_left {
+  font-weight: bold;
+}
+
+.home_model_content_box swiper {
+  min-height: 80rpx;
+  height: 120rpx;
+}
+
+.home_model_content_box swiper swiper-item view:nth-of-type(2){
+  color: #A3A3A3;
+  font-size: .9rem;
+  margin-top: 10rpx;
+}

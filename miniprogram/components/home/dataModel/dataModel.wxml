@@ -1,0 +1,32 @@
+<!--components/home/dataModel/dataModel.wxml-->
+
+<view class="home_model_item_container">
+  <view class="home_model_inner_container">
+    <view class="home_model_title_box">
+      <view class="title_left">
+        今日数据
+        <text>06/02 00:50</text>
+      </view>
+      <view class="title_right">
+        <mp-icon icon="arrow" color="#ACACAC" size="{{12}}"></mp-icon>
+      </view>
+    </view>
+    <view class="home_model_content_box">
+      <view class="content_item">
+        <view class="title">支付金额</view>
+        <view class="today">￥{{record.today.priceCount}}</view>
+        <view class="yesterday">昨日 {{'￥' + record.yesterday.priceCount}}</view>
+      </view>
+      <view class="content_item">
+        <view class="title">订单数</view>
+        <view class="today">{{record.today.orderCount}}</view>
+        <view class="yesterday">昨日 {{record.yesterday.orderCount}}</view>
+      </view>
+      <view class="content_item">
+        <view class="title">访客数</view>
+        <view class="today">{{record.today.personCount}}</view>
+        <view class="yesterday">昨日 {{record.yesterday.personCount}}</view>
+      </view>
+    </view>
+  </view>
+</view>

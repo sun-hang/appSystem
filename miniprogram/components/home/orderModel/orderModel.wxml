@@ -1,0 +1,35 @@
+<!--components/home/orderModel/orderModel.wxml-->
+
+<view class="home_model_item_container">
+  <view class="home_model_inner_container">
+    <view class="home_model_title_box">
+      <view class="title_left">
+        待处理
+      </view>
+      <view class="title_right">
+        <text>订单管理</text>
+        <mp-icon icon="arrow" color="#ACACAC" size="{{12}}"></mp-icon>
+      </view>
+    </view>
+    <view class="home_model_content_box">
+      <view class="content_item">
+        <view class="count">
+        {{record.unpaidCount}}
+        </view>
+        <view class="text">
+          <text>待付款</text>
+          <mp-icon icon="arrow" color="#ACACAC" size="{{10}}"></mp-icon>
+        </view>
+      </view>
+      <view class="content_item">
+        <view class="count">
+          {{record.deliveryCount}}
+        </view>
+        <view class="text">
+          <text>待发货</text>
+          <mp-icon icon="arrow" color="#ACACAC" size="{{10}}"></mp-icon>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

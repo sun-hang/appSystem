@@ -1,0 +1,20 @@
+/* components/home/businessModel/businessModel.wxss */
+@import '../global.wxss';
+
+.home_model_content_box{
+  margin-top: 40rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.home_model_content_box .content_item{
+  width: 48%;
+  text-align: left;
+  box-sizing: border-box;
+  padding: 15rpx 0 15rpx 25rpx;
+  margin: 10rpx 0;
+  background-color: #FCFBFA;
+  border-radius: 8rpx;
+}

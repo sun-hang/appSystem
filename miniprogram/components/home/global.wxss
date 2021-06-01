@@ -1,0 +1,33 @@
+.home_model_item_container {
+  width: 100%;
+  margin: 30rpx auto;
+}
+
+.home_model_inner_container {
+  width: 96%;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+  padding: 30rpx 25rpx;
+}
+
+.home_model_title_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+  font-size: 30rpx;
+}
+
+.home_model_title_box .title_left text {
+  color: #B0B0B0;
+  font-size: .8rem;
+  margin-left: 6rpx;
+}
+
+.home_model_title_box .title_right>text {
+  color: #B3B3B3;
+  font-size: .8rem;
+  margin-right: 5rpx;
+}

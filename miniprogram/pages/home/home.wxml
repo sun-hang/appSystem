@@ -32,36 +32,22 @@
         </view>
       </view>
     </view>
+
+    <view class="home_content_container">
+      <!-- 重要事项模块 -->
+      <my-matter-model contentList="{{matter}}"></my-matter-model>
+      <!-- 订单模块 -->
+      <my-order-model record="{{order}}"></my-order-model>
+      <!-- 数据模块 -->
+      <my-data-model record="{{data}}"></my-data-model>
+      <!-- 商品模块 -->
+      <my-product-model record="{{product}}"></my-product-model>
+      <!-- 营销模块 -->
+      <my-marketing-model contentList="{{marketing}}"></my-marketing-model>
+      <!-- 带货模块 -->
+      <my-commerce-model contentList="{{commerce}}"></my-commerce-model>
+      <!-- 商家成长模块 -->
+      <my-business-model contentList="{{business}}"></my-business-model>
+    </view>
   </view>
 </view>
-
-<view>1</view>
-<view>2</view>
-<view>3</view>
-<view>4</view>
-<view>5</view>
-<view>6</view>
-<view>7</view>
-<view>8</view>
-<view>9</view>
-<view>10</view>
-<view>11</view>
-<view>12</view>
-<view>13</view>
-<view>14</view>
-<view>15</view>
-<view>16</view>
-<view>17</view>
-<view>18</view>
-<view>19</view>
-<view>20</view>
-<view>1</view>
-<view>2</view>
-<view>3</view>
-<view>4</view>
-<view>5</view>
-<view>6</view>
-<view>7</view>
-<view>8</view>
-<view>9</view>
-<view>10</view>
