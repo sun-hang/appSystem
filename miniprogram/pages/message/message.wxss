@@ -26,6 +26,11 @@
   align-items: center;
   font-size: 22rpx;
   color: rgb(94, 93, 93);
+  transition: all .3s;
+}
+
+.message_btn_item.active{
+  color: #f40;
 }
 
 .message_btn_item text{

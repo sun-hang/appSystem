@@ -1,25 +1,25 @@
 <view class="message_container">
   <view class="message_inner_container">
 
-  <!-- 头部菜单按钮 -->
+    <!-- 头部菜单按钮 -->
     <view class="message_header_btn_container">
-      <view class="message_btn_item" data-item="{{0}}" bindtap="menuBtnClick">
-        <mp-icon icon="email" color="black" size="{{25}}"></mp-icon>
+      <view class="message_btn_item {{index === 0 ? 'active':''}}" data-item="{{0}}" bindtap="menuBtnClick">
+        <mp-icon icon="email" color="{{index === 0 ? '#f40':'black'}}" size="{{25}}"></mp-icon>
         <text>未处理消息</text>
       </view>
-      <view class="message_btn_item" bindtap="menuBtnClick" data-item="{{1}}">
-        <mp-icon icon="comment" color="black" size="{{25}}"></mp-icon>
+      <view class="message_btn_item {{index === 1 ? 'active':''}}" bindtap="menuBtnClick" data-item="{{1}}">
+        <mp-icon icon="comment" color="{{index === 1 ? '#f40':'black'}}" size="{{25}}"></mp-icon>
         <text>已处理消息</text>
       </view>
-      <view class="message_btn_item" bindtap="menuBtnClick" data-item="{{2}}">
-        <mp-icon icon="more" color="black" size="{{25}}"></mp-icon>
+      <view class="message_btn_item {{index === 2 ? 'active':''}}" bindtap="menuBtnClick" data-item="{{2}}">
+        <mp-icon icon="more" color="{{index === 2 ? '#f40':'black'}}" size="{{25}}"></mp-icon>
         <text>全部消息</text>
       </view>
     </view>
 
     <!-- 内容主体 -->
     <view class="message_content_container">
-      <swiper current="{{index}}">
+      <swiper current="{{index}}" bindchange="swiperChange">
         <swiper-item>未处理信息</swiper-item>
         <swiper-item>已处理信息</swiper-item>
         <swiper-item>全部信息</swiper-item>

@@ -9,7 +9,17 @@ Page({
   },
   menuBtnClick(e) {
     this.setData({
-      index:e.currentTarget.dataset.item
+      index: e.currentTarget.dataset.item
+    })
+  },
+
+  /**
+   * swiper组件切换事件
+   * @param {*} e 
+   */
+  swiperChange(e) {
+    this.setData({
+      index: e.detail.current
     })
   },
   /**
