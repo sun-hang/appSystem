@@ -2,7 +2,7 @@
 
 <view class="home_model_item_container">
   <view class="home_model_inner_container">
-    <view class="home_model_title_box">
+    <view class="home_model_title_box" catchtap="click">
       <view class="title_left">
         今日数据
         <text>06/02 00:50</text>

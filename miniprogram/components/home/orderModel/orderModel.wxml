@@ -2,7 +2,7 @@
 
 <view class="home_model_item_container">
   <view class="home_model_inner_container">
-    <view class="home_model_title_box">
+    <view class="home_model_title_box" data-item="{{0}}" catchtap="itemClick">
       <view class="title_left">
         待处理
       </view>
@@ -12,16 +12,16 @@
       </view>
     </view>
     <view class="home_model_content_box">
-      <view class="content_item">
+      <view class="content_item" catchtap="itemClick" data-item="{{1}}">
         <view class="count">
-        {{record.unpaidCount}}
+          {{record.unpaidCount}}
         </view>
         <view class="text">
           <text>待付款</text>
           <mp-icon icon="arrow" color="#ACACAC" size="{{10}}"></mp-icon>
         </view>
       </view>
-      <view class="content_item">
+      <view class="content_item" catchtap="itemClick" data-item="{{2}}">
         <view class="count">
           {{record.deliveryCount}}
         </view>

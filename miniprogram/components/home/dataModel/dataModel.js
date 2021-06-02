@@ -6,16 +6,16 @@ Component({
   properties: {
     record: {
       type: Object,
-      value: {   //数据模块数据
+      value: { //数据模块数据
         today: {
-          priceCount: 0,  //支付金额
-          orderCount: 0,   //订单数
-          personCount: 0    //访问数
+          priceCount: 0, //支付金额
+          orderCount: 0, //订单数
+          personCount: 0 //访问数
         },
         yesterday: {
-          priceCount: 0,  //支付金额
-          orderCount: 0,   //订单数
-          personCount: 0    //访问数
+          priceCount: 0, //支付金额
+          orderCount: 0, //订单数
+          personCount: 0 //访问数
         }
       }
     }
@@ -32,6 +32,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    click() {
+      wx.navigateTo({
+        url: '../dataPage/dataPage'
+      })
+    }
   }
 })

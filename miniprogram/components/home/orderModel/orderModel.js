@@ -8,7 +8,7 @@ Component({
       type: Object,
       value: {
         unpaidCount: 0, //待付款总数
-        deliveryCount: 0  //待发货总数
+        deliveryCount: 0 //待发货总数
       }
     }
   },
@@ -24,6 +24,14 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    /**
+     * 按钮点击事件
+     * @param {*} e 
+     */
+    itemClick(e) {
+      wx.navigateTo({
+        url: '../orderList/orderList?index=' + e.currentTarget.dataset.item
+      })
+    }
   }
 })

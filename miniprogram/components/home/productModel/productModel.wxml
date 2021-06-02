@@ -11,21 +11,21 @@
       </view>
     </view>
     <view class="home_model_content_box">
-      <view class="content_item">
+      <view class="content_item" catchtap="itemClick" data-item="{{0}}">
         <view class="top">{{record.saleCount}}</view>
         <view class="bottom">
           <text>销售中</text>
           <mp-icon icon="arrow" color="#ACACAC" size="{{10}}"></mp-icon>
         </view>
       </view>
-      <view class="content_item">
+      <view class="content_item" catchtap="itemClick" data-item="{{1}}">
         <view class="top">{{record.groundingCount}}</view>
         <view class="bottom">
           <text>待上架</text>
           <mp-icon icon="arrow" color="#ACACAC" size="{{10}}"></mp-icon>
         </view>
       </view>
-      <view class="content_item">
+      <view class="content_item" catchtap="addClick">
         <view class="top" style="background:rgba(255,255,255,.3);">
           <mp-icon icon="add" type="field" color="#D36D5E" size="{{24}}"></mp-icon>
         </view>

@@ -2,7 +2,7 @@
   "miniprogramRoot": "miniprogram/",
   "cloudfunctionRoot": "cloudfunctions/",
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "es6": true,
     "enhance": true,
     "postcss": true,
@@ -27,7 +27,6 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "enableEngineNative": false,
     "useIsolateContext": true,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
@@ -38,7 +37,7 @@
   },
   "appid": "wx2c71034838c32abb",
   "projectname": "appSystem",
-  "libVersion": "2.14.1",
+  "libVersion": "2.17.0",
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
     "search": {
