@@ -1,13 +1,36 @@
-const src = 'https://www.fangmmmm.top:612/api/download/1.jpg';
+const src = 'https://www.fangmmmm.top:612/api/download/1.jpg'; //头像地址
+const storeName = '小方小店的店铺后台'; //小程序名字
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    src
+    src,
+    storeName
   },
 
+  /**
+   * 每个菜单项点击事件
+   * @param {*} e 
+   */
+  itemClick(e) {
+    wx.showToast({
+      title: '暂不支持该功能',
+      icon: "error"
+    })
+  },
+
+  /**
+   * 店铺详情点击事件
+   * @param {*} e 
+   */
+  detailClick(e) {
+    wx.showToast({
+      title: '页面还没写呢',
+      icon:"error"
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

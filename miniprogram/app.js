@@ -1,4 +1,10 @@
 //app.js
+
+/**
+ * openId白名单，不是白名单的人不能登录
+ */
+const whiteList = ['', ''];
+
 App({
   onLaunch: function () {
     if (!wx.cloud) {

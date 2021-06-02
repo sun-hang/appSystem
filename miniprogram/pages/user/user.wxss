@@ -1,1 +1,63 @@
-/* miniprogram/pages/user/user.wxss */
+.user_container {
+  width: 100%;
+  margin-top: 100rpx;
+}
+
+.user_inner_container {
+  width: 96%;
+  margin: 0 auto;
+}
+
+.user_userinfo_box{
+  width: 100%;
+  margin: 50rpx auto 40rpx;
+}
+.user_userinfo_box .img_box{
+  width: 100%;
+  text-align: center;
+}
+
+.user_userinfo_box .img_box image{
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+}
+
+.user_userinfo_box .name_box{
+  text-align: center;
+  margin-top: 25rpx;
+  font-size: 30rpx;
+}
+
+.user_userinfo_box .detail_box{
+  font-size: 24rpx;
+  color: #7c7c7c;
+  text-align: center;
+  margin: 20rpx 0;
+}
+
+.user_content_box{
+  width: 100%;
+}
+
+.user_content_item{
+  width: 100%;
+  background-color: #fff;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  padding: 20rpx 25rpx;
+  margin: 20rpx 0;
+  border-radius: 12rpx;
+  font-size: .9rem;
+}
+
+.user_content_item .list_item:first-child{
+  border-bottom: 1px solid #eee;
+}
+
+.user_content_item .list_item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22rpx 0;
+}

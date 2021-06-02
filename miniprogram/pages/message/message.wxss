@@ -1,1 +1,43 @@
-/* miniprogram/pages/message/message.wxss */
+.message_container{
+  width: 100%;
+}
+/* .message_inner_container{
+  width: 96%;
+  margin: 0 auto;
+} */
+
+.message_header_btn_container{
+  width: 96%;
+  margin: 0 auto;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 30rpx 10rpx;
+  border-radius: 12rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.message_btn_item{
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 22rpx;
+  color: rgb(94, 93, 93);
+}
+
+.message_btn_item text{
+  margin-top: 10rpx;
+}
+
+.message_content_container{
+  width: 100%;
+  margin-top: 20rpx;
+  background: #fff;
+  height: 100%;
+  padding: 20rpx 25rpx;
+  box-sizing: border-box;
+  min-height: 84vh;
+}

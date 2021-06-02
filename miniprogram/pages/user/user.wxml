@@ -8,6 +8,10 @@
       <view class="name_box">
         <text>{{storeName}}</text>
       </view>
+      <view class="detail_box" bindtap="detailClick">
+          <text>店铺详情</text>
+          <mp-icon icon="arrow" color="#7c7c7c" size="{{10}}"></mp-icon>
+      </view>
     </view>
     <!-- 菜单内容 -->
     <view class="user_content_box">
