@@ -1,2 +1,52 @@
-<!--miniprogram/pages/user/user.wxml-->
-<text>miniprogram/pages/user/user.wxml</text>
+<view class="user_container">
+  <view class="user_inner_container">
+    <!-- 头部店铺信息 -->
+    <view class="user_userinfo_box">
+      <view class="img_box">
+        <image src="{{src}}"></image>
+      </view>
+      <view class="name_box">
+        <text>{{storeName}}</text>
+      </view>
+    </view>
+    <!-- 菜单内容 -->
+    <view class="user_content_box">
+      <view class="user_content_item">
+        <view class="list_item" bindtap="itemClick">
+          <view class="left">
+            账户资产
+          </view>
+          <view class="right">
+            <mp-icon icon="arrow" color="#D7D7D7" size="{{12}}"></mp-icon>
+          </view>
+        </view>
+        <view class="list_item" bindtap="itemClick">
+          <view class="left">
+            成员设置
+          </view>
+          <view class="right">
+            <mp-icon icon="arrow" color="#D7D7D7" size="{{12}}"></mp-icon>
+          </view>
+        </view>
+      </view>
+      <view class="user_content_item">
+        <view class="list_item" bindtap="itemClick">
+          <view class="left">
+            官方客服
+          </view>
+          <view class="right">
+            <mp-icon icon="arrow" color="#D7D7D7" size="{{12}}"></mp-icon>
+          </view>
+        </view>
+        <view class="list_item" bindtap="itemClick">
+          <view class="left">
+            设置
+          </view>
+          <view class="right">
+            <mp-icon icon="arrow" color="#D7D7D7" size="{{12}}"></mp-icon>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

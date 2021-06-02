@@ -1,11 +1,11 @@
-// miniprogram/pages/user/user.js
+const src = 'https://www.fangmmmm.top:612/api/download/1.jpg';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    src
   },
 
   /**
