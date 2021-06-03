@@ -1,1 +1,9 @@
-
+<view class="func_container">
+  <view class="func_inner_container">
+    <my-item-card data="{{basics}}"></my-item-card>
+    <my-item-card data="{{shop}}"></my-item-card>
+    <my-item-card data="{{marketing}}"></my-item-card>
+    <my-item-card data="{{platform}}"></my-item-card>
+    <my-item-card data="{{third}}"></my-item-card>
+  </view>
+</view>

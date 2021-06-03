@@ -1,0 +1,15 @@
+<view class="itemCard_container">
+  <view class="itemCard_inner_container">
+    <!-- 头部标题 -->
+    <view class="itemCard_title_box">
+      <text>{{data.title}}</text>
+    </view>
+    <!-- 图标列表 -->
+    <view class="itemCard_list_container">
+      <view class="itemCard_item_box" bindtap="itemClick" wx:for="{{data.childs}}" wx:key="{{index}}" data-item="{{index}}">
+        <view class="iconfont {{item.class}}" style="color:{{item.color}};"></view>
+        <view class="text">{{item.text}}</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "my-item-card": "../../components/func/itemCard/itemCard"
+  },
   "navigationBarTitleText": "功能"
 }

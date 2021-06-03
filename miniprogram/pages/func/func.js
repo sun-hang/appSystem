@@ -7,19 +7,19 @@ const basics = {
     text: "新增商品",
     class: "icon-xinzeng",
     color: "#E26954",
-    page: "pages/addProduct/addProduct"
+    page: "../addProduct/addProduct"
   },
   {
     text: "商品列表",
     class: "icon-gouwudai",
     color: "#EC6A5A",
-    page: "pages/productList/productList"
+    page: "../productList/productList"
   },
   {
     text: "订单管理",
     class: "icon-dingdan",
     color: "#20A1D8",
-    page: "pages/orderList/orderList"
+    page: "../orderList/orderList"
   },
   {
     text: "配送管理",
