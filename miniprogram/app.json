@@ -8,7 +8,10 @@
     "pages/productList/productList",
     "pages/orderList/orderList",
     "pages/searchPage/searchPage",
-    "pages/dataPage/dataPage"
+    "pages/dataPage/dataPage",
+    "pages/tag/tag",
+    "pages/orderManagement/orderManagement",
+    "pages/productManagement/productManagement"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

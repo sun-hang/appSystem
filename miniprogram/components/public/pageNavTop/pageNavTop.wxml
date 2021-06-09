@@ -1,0 +1,17 @@
+<view class="pageNavTop_container">
+  <view class="pageNavTop_inner_container">
+    <view class="pageNavTop_status" style="height:{{statusHeight}}px;">
+
+    </view>
+    <view class="pageNavTop_nav" style="height:{{navHeight}}px;">
+      <view class="left_home_box">
+        <mp-icon icon="back" color="black" bindtap="backClick" size="{{12}}"></mp-icon>
+        <mp-icon icon="home" color="black" bindtap="homeClick" size="{{25}}"></mp-icon>
+      </view>
+      <view class="right_search_box">
+        <my-search bind:click="searchClick"></my-search>
+      </view>
+    </view>
+
+  </view>
+</view>

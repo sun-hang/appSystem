@@ -22,6 +22,12 @@ const basics = {
     page: "../orderList/orderList"
   },
   {
+    text:"标签管理",
+    class:"icon-biaoqian",
+    color:"#25AAE5",
+    page:"../tag/tag"
+  },
+  {
     text: "配送管理",
     class: "icon--_peisongshang",
     color: "#22AAE8"

@@ -1,0 +1,22 @@
+.navMenu_container {
+  width: 100%;
+}
+
+.nav_inner_container {
+  width: 96%;
+  margin: 15rpx auto 20rpx;
+  padding: 0 15rpx;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav_inner_container .nav_item_box {
+  padding: 0 10rpx 10rpx;
+  border-bottom: 2px solid transparent;
+}
+
+.nav_inner_container .nav_item_box.active {
+  border-bottom: 2px solid #000;
+}

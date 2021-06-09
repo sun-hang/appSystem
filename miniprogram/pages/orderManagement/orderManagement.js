@@ -1,51 +1,18 @@
-const titleMenu = [
-  '全部',
-  '待付款',
-  '待发货',
-  '已发货',
-  '已签收'
-];
-const systemInfo = wx.getSystemInfoSync();
-const navHeight = systemInfo.system.indexOf('iOS') > -1 ? 44 + systemInfo.statusBarHeight : 48 + systemInfo.statusBarHeight;
+// miniprogram/pages/orderManagement/orderManagement.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    index: 0,
-    titleMenu,
-    navHeight
-  },
 
-  /**
-   * 搜索框点击事件
-   */
-  searchClick() {
-    wx.navigateTo({
-      url: '../orderManagement/orderManagement',
-    })
-  },
-
-  /**
-   * 头部菜单切换事件
-   * @param {*} e 
-   */
-  changeTag(e) {
-    this.setData({
-      index: e.detail.i
-    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (options.index) {
-      this.setData({
-        index: +options.index
-      })
-    }
+
   },
 
   /**

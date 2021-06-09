@@ -10,7 +10,7 @@
   /* border: 1px solid; */
   border-radius: 30rpx;
   display: flex;
-  background-color: #F4F4F4;
+  background-color: #fff;
   font-size:.8rem;
   box-sizing: border-box;
   padding: 8rpx 25rpx;

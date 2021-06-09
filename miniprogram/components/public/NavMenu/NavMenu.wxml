@@ -1,0 +1,6 @@
+<view class="navMenu_container">
+  <view class="nav_inner_container">
+    <view class="nav_item_box {{i === index ? 'active':''}}" bindtap="changeFun" wx:for="{{contentList}}" wx:key="{{index}}"
+      data-item="{{index}}">{{item}}</view>
+  </view>
+</view>

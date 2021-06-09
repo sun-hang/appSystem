@@ -1,17 +1,20 @@
 @font-face {
-  font-family: "iconfont";
-  /* Project id 2587719 */
-  src: url('//at.alicdn.com/t/font_2587719_v0nahrim5o.woff2?t=1622638137159') format('woff2'),
-    url('//at.alicdn.com/t/font_2587719_v0nahrim5o.woff?t=1622638137159') format('woff'),
-    url('//at.alicdn.com/t/font_2587719_v0nahrim5o.ttf?t=1622638137159') format('truetype');
+  font-family: "iconfont"; /* Project id 2587719 */
+  src: url('//at.alicdn.com/t/font_2587719_472x9kitgqx.woff2?t=1623150305353') format('woff2'),
+       url('//at.alicdn.com/t/font_2587719_472x9kitgqx.woff?t=1623150305353') format('woff'),
+       url('//at.alicdn.com/t/font_2587719_472x9kitgqx.ttf?t=1623150305353') format('truetype');
 }
 
 .iconfont {
   font-family: "iconfont" !important;
-  font-size: 20px;
+  font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-biaoqian:before {
+  content: "\e643";
 }
 
 .icon-liebiao:before {
@@ -85,6 +88,7 @@
 .icon-shichang:before {
   content: "\e63d";
 }
+
 
 .itemCard_container {
   width: 100%;

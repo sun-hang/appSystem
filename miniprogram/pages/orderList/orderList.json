@@ -1,4 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "my-page-nav-top": "../../components/public/pageNavTop/pageNavTop",
+    "my-nav-menu": "../../components/public/NavMenu/NavMenu"
+  },
   "navigationStyle": "custom"
 }

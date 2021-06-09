@@ -35,6 +35,24 @@
           "pathName": "pages/func/func",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/productList/productList",
+          "pathName": "pages/productList/productList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/orderList/orderList",
+          "pathName": "pages/orderList/orderList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/addProduct/addProduct",
+          "pathName": "pages/addProduct/addProduct",
+          "query": "",
+          "scene": null
         }
       ]
     }

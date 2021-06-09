@@ -1,11 +1,41 @@
-// miniprogram/pages/productList/productList.js
+const titleMenu = [
+  '上架销售中',
+  '待上架',
+  '已下架'
+];
+
+const systemInfo = wx.getSystemInfoSync();
+const navHeight = systemInfo.system.indexOf('iOS') > -1 ? 44 + systemInfo.statusBarHeight : 48 + systemInfo.statusBarHeight;
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    index: -1
+    index: 0,
+    titleMenu,
+    navHeight
+  },
+
+
+  /**
+   * 搜索框点击事件
+   */
+  searchClick() {
+    wx.navigateTo({
+      url: '../productManagement/productManagement',
+    })
+  },
+
+  /**
+   * 头部菜单切换事件
+   * @param {*} e 
+   */
+  changeTag(e) {
+    this.setData({
+      index: e.detail.i
+    })
   },
 
   /**

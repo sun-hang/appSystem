@@ -1,2 +1,21 @@
-<!--miniprogram/pages/addProduct/addProduct.wxml-->
-<text>miniprogram/pages/addProduct/addProduct.wxml</text>
+<view class="addproduct_container">
+  <view class="addproduct_inner_container">
+    <!-- 商品标题和图片上传组件 -->
+    <view class="titleAnd_imgUpload_container">
+      <view class="title_box">
+        <textarea placeholder="从这里输入商品名称与关键字..." auto-height></textarea>
+        <view class="length">
+          {{}}/30
+        </view>
+      </view>
+      <view class="imgUpload_box">
+        <mp-cells>
+          <mp-cell>
+            <mp-uploader delet="{{true}}" binddelete="binddelete" bindfail="uploadError" bindsuccess="uploadSuccess" select="{{selectFile}}"
+              upload="{{uplaodFile}}" files="{{files}}" bindselect="bindselect" max-count="15"></mp-uploader>
+          </mp-cell>
+        </mp-cells>
+      </view>
+    </view>
+  </view>
+</view>
