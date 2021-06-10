@@ -6,7 +6,12 @@ Page({
    */
   data: {
     files: [],
-    imgs: []
+    imgs: [],
+    titleValue: '',
+    isFocu: false,
+    titleMaxLength: 30,
+    detailMaxLength: 220,
+    detailValue: ''
   },
 
   /**
@@ -76,7 +81,9 @@ Page({
   uplaodFile(e) {
     console.log(e, '图片上传函数')
     return new Promise((res, rej) => {
-      let urls = { urls: e.tempFilePaths }
+      let urls = {
+        urls: e.tempFilePaths
+      }
       api.uploadImg(e.tempFilePaths, (data) => {
         this.setData({
           imgs: data
@@ -86,11 +93,46 @@ Page({
           let path = 'http://kf3.xyz/';
           return path + item;
         })
-        res({ urls: data });
+        res({
+          urls: data
+        });
       });
 
     })
   },
+
+  /**
+   * 标题文本域聚焦事件
+   * @param {*} e 
+   */
+  titleFocus(e) {
+    this.setData({
+      isFocu: true
+    })
+  },
+
+  /**
+   * 文本域失去焦点事件
+   * @param {*} e 
+   */
+  titleBlur(e) {
+    this.setData({
+      isFocu: false
+    })
+  },
+
+  /**
+   * 文本域内容变换事件
+   * @param {*} e 
+   */
+  titleInputChange(e) {
+    let value = e.detail.value.trim();
+    value = value.substr(0, this.data.titleMaxLength);
+    this.setData({
+      titleValue: value
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

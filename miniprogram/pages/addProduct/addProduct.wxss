@@ -1,1 +1,55 @@
-/* miniprogram/pages/addProduct/addProduct.wxss */
+.addproduct_container {
+  width: 100%;
+}
+
+.addproduct_inner_container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.titleAnd_imgUpload_container {
+  width: 100%;
+  background-color: #fff;
+}
+
+.titleAnd_imgUpload_container .title_box {
+  width: 96%;
+  margin: 0 auto;
+  padding: 10rpx 15rpx;
+}
+
+.titleAnd_imgUpload_container .title_box textarea {
+  font-size: .9rem;
+}
+
+.length {
+  margin-top: 10rpx;
+  text-align: right;
+  color: rgb(167, 164, 164);
+  font-size: .9rem;
+}
+
+.product_content_box {
+  width: 96%;
+  margin: 20rpx auto;
+  background-color: #fff;
+  border-radius: 12rpx;
+  box-sizing: border-box;
+  padding: 20rpx 25rpx;
+}
+
+.product_item_box{
+  display: flex;
+  justify-content: space-between;
+  font-size: 26rpx;
+  margin: 25rpx 0;
+}
+.product_item_box .right{
+  display: flex;
+  align-items: center;
+}
+.product_item_box .right input{
+  text-align: right;
+  font-size: 26rpx;
+  margin-right: 10rpx;
+}

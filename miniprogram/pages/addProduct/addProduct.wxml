@@ -3,19 +3,82 @@
     <!-- 商品标题和图片上传组件 -->
     <view class="titleAnd_imgUpload_container">
       <view class="title_box">
-        <textarea placeholder="从这里输入商品名称与关键字..." auto-height></textarea>
-        <view class="length">
-          {{}}/30
+        <textarea value="{{titleValue}}" bindfocus="titleFocus" bindblur="titleBlur" maxlength="{{titleMaxLength}}"
+          bindinput="titleInputChange" placeholder="从这里输入商品名称与关键字..." auto-height></textarea>
+        <view class="length" wx:if="{{isFocu}}">
+          {{titleValue.length}}/{{titleMaxLength}}
         </view>
       </view>
       <view class="imgUpload_box">
         <mp-cells>
           <mp-cell>
-            <mp-uploader delet="{{true}}" binddelete="binddelete" bindfail="uploadError" bindsuccess="uploadSuccess" select="{{selectFile}}"
-              upload="{{uplaodFile}}" files="{{files}}" bindselect="bindselect" max-count="15"></mp-uploader>
+            <mp-uploader delet="{{true}}" binddelete="binddelete" bindfail="uploadError" bindsuccess="uploadSuccess"
+              select="{{selectFile}}" upload="{{uplaodFile}}" files="{{files}}" bindselect="bindselect" max-count="15"
+              title="商品图片上传"></mp-uploader>
           </mp-cell>
         </mp-cells>
       </view>
+    </view>
+
+    <!-- 商品内容部分 -->
+    <view class="product_content_box">
+
+      <!-- 价格项 -->
+      <view class="product_item_box price">
+        <view class="left">
+          <text class="required">*</text>
+          价格
+        </view>
+        <view class="right">
+          <input type="number" placeholder="请输入价格" />元
+        </view>
+      </view>
+
+      <!-- 原价项 -->
+      <view class="product_item_box origin_price">
+        <view class="left">
+          <text class="required" style="opacity: 0;">*</text>
+          原价
+        </view>
+        <view class="right">
+          <input type="number" placeholder="请输入原价" />元
+        </view>
+      </view>
+
+      <!-- 库存项 -->
+      <view class="product_item_box stock">
+        <view class="left">
+          <text class="required">*</text>
+          库存
+        </view>
+        <view class="right">
+          <input type="number" placeholder="请输入库存" />件
+        </view>
+      </view>
+    </view>
+
+    <!-- 类目项 -->
+    <view class="product_tag_container">
+      <view class="left">
+        <text class="required">*</text>
+        类目
+      </view>
+      <view class="right">
+
+      </view>
+    </view>
+
+    <!-- 详情项 -->
+    <view class="product_detail_container">
+      <view class="title_box">商品详情</view>
+      <textarea auto-height placeholder="商品详情介绍，限220字符" bindinput="" bindfocus="" bindblur=""
+        maxlength="{{detailMaxLength}}"></textarea>
+      <view class="length">{{detailValue.length}}/{{detailMaxLength}}</view>
+    </view>
+
+    <!-- 规格项，添加以后会显示 -->
+    <view class="product_option_container">
+
     </view>
   </view>
 </view>
