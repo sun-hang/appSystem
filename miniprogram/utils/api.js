@@ -1,5 +1,5 @@
-const url = 'http://127.0.0.1:529';
-// const url = 'https://fangmmmm:529';
+// const url = 'http://127.0.0.1:529';
+const url = 'https://fangmmmm.top:508';
 module.exports.uploadImg = (files = [], callback = () => { }) => {
   let path = '/api/upload';
   let result = [];
@@ -10,6 +10,7 @@ module.exports.uploadImg = (files = [], callback = () => { }) => {
       name: 'image',
       url: url + path,
       success(res) {
+        console.log(res)
         count++;
         let data = JSON.parse(res.data);
         if (data.status == 200) {
@@ -19,7 +20,8 @@ module.exports.uploadImg = (files = [], callback = () => { }) => {
           callback(result)
         }
       },
-      fail() {
+      fail(err) {
+        console.log(err)
         count++;
       }
     })

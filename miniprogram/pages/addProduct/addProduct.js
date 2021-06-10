@@ -82,7 +82,9 @@ Page({
           imgs: data
         })
         data = data.map(item => {
-          return 'http://127.0.0.1:529/' + item;
+          // let path = 'http://127.0.0.1:529/';
+          let path = 'http://kf3.xyz/';
+          return path + item;
         })
         res({ urls: data });
       });
