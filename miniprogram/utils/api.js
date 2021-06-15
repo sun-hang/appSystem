@@ -1,6 +1,18 @@
 // const url = 'http://127.0.0.1:529';
 const url = 'https://fangmmmm.top:508';
 
+const success = (callback) => {
+  return (res) => {
+    callback(null, res)
+  }
+}
+
+const fail = (callback) => {
+  return (err) => {
+    callback(err, null)
+  }
+}
+
 /**
  * 图片上传
  * @param {Array} files  图片临时路径数组
@@ -53,7 +65,19 @@ module.exports.uploadImg = (files = [], callback = () => { }) => {
  * @param {*} callback 完成的回调函数
  */
 module.exports.addTag = (tag = {}, callback = () => { }) => {
+  let path = `/api/tag`;
 
+  wx.request({
+    url: url + path,
+    method: "POST",
+    data: tag,
+    header: {
+      'content-type': 'application/json'
+    },
+    dataType: "json",
+    success: success(callback),
+    fail: fail(callback)
+  })
 }
 
 /**
@@ -62,7 +86,18 @@ module.exports.addTag = (tag = {}, callback = () => { }) => {
  * @param {*} callback 完成的回调函数
  */
 module.exports.setTag = (desc = {}, callback = () => { }) => {
-
+  let path = `/api/tag/${desc._id}`;
+  wx.request({
+    url: url + path,
+    method: "PUT",
+    dataType: "json",
+    data: desc,
+    header: {
+      'content-type': 'application/json'
+    },
+    success: success(callback),
+    fail: fail(callback)
+  })
 }
 
 /**
@@ -71,7 +106,17 @@ module.exports.setTag = (desc = {}, callback = () => { }) => {
  * @param {*} callback  完成后的回调函数
  */
 module.exports.removeTag = (_id, callback = () => { }) => {
-
+  let path = `/api/tag/${_id}`;
+  wx.request({
+    url: url + path,
+    method: "DELETE",
+    dataType: "json",
+    header: {
+      'content-type': 'application/json'
+    },
+    success: success(callback),
+    fail: fail(callback)
+  })
 }
 
 /**
@@ -79,8 +124,19 @@ module.exports.removeTag = (_id, callback = () => { }) => {
  * @param {Function} callback 
  */
 module.exports.getTagList = (callback = () => { }) => {
-
+  let path = `/api/tag`;
+  wx.request({
+    url: url + path,
+    method: "GET",
+    dataType: "json",
+    header: {
+      'content-type': 'application/json'
+    },
+    success: success(callback),
+    fail: fail(callback)
+  })
 }
+
 
 
 
@@ -127,7 +183,7 @@ module.exports.removeProduct = (_id, callback = () => { }) => {
  * @param {Function} callback 成功后回调函数
  */
 module.exports.getProductList = (state, callback = () => { }) => {
-
+  let path = `/api/product?state=${state}`;
 }
 
 
@@ -163,12 +219,12 @@ module.exports.setOrider = (desc = {}, callback = () => { }) => {
 
 
 /**
- * 
- * 
+ *
+ *
  * 搜索部分api
  * 订单列表部分 ： 商品名称  订单编号  手机号搜索
- * 
- * 
+ *
+ *
  * 商品列表 ： 商品名称
- * 
+ *
  */

@@ -4,7 +4,7 @@
  * openId白名单，不是白名单的人不能登录
  */
 const whiteList = ['', ''];
-
+const api = require('./utils/api');
 App({
   onLaunch: function () {
     if (!wx.cloud) {
@@ -23,3 +23,19 @@ App({
     this.globalData = {}
   }
 })
+
+// api.addTag({ title: "彩妆", child: [] }, (err, res) => {
+//   console.log(err, res)
+// })
+
+// api.setTag({ "_id": "60c88d7d49200510cb6c0a08","child": ["1", "2"]}, (err, res) => {
+//   console.log(err, res)
+// })
+
+// api.removeTag("60c88d7d49200510cb6c0a08", (err, res) => {
+//   console.log(err, res);
+// })
+
+// api.getTagList((err, res) => {
+//   console.log(err, res)
+// })
