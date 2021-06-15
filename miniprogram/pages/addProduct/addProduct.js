@@ -11,7 +11,8 @@ Page({
     isFocu: false,
     titleMaxLength: 30,
     detailMaxLength: 220,
-    detailValue: ''
+    detailValue: '',
+    detailIsFocu: false
   },
 
   /**
@@ -106,9 +107,15 @@ Page({
    * @param {*} e 
    */
   titleFocus(e) {
-    this.setData({
-      isFocu: true
-    })
+    if (e.currentTarget.dataset.name === 'title') {
+      this.setData({
+        isFocu: true
+      })
+    } else if (e.currentTarget.dataset.name === 'detail') {
+      this.setData({
+        detailIsFocu: true
+      })
+    }
   },
 
   /**
@@ -116,9 +123,15 @@ Page({
    * @param {*} e 
    */
   titleBlur(e) {
-    this.setData({
-      isFocu: false
-    })
+    if (e.currentTarget.dataset.name === 'title') {
+      this.setData({
+        isFocu: false
+      })
+    } else if (e.currentTarget.dataset.name === 'detail') {
+      this.setData({
+        detailIsFocu: false
+      })
+    }
   },
 
   /**
@@ -127,10 +140,17 @@ Page({
    */
   titleInputChange(e) {
     let value = e.detail.value.trim();
-    value = value.substr(0, this.data.titleMaxLength);
-    this.setData({
-      titleValue: value
-    })
+    if (e.currentTarget.dataset.name === 'title') {
+      value = value.substr(0, this.data.titleMaxLength);
+      this.setData({
+        titleValue: value
+      })
+    } else if (e.currentTarget.dataset.name === 'detail') {
+      value = value.substr(0, this.data.detailMaxLength);
+      this.setData({
+        detailValue: value
+      })
+    }
   },
 
   /**

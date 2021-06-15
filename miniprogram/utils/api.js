@@ -1,5 +1,11 @@
 // const url = 'http://127.0.0.1:529';
 const url = 'https://fangmmmm.top:508';
+
+/**
+ * 图片上传
+ * @param {Array} files  图片临时路径数组
+ * @param {Function} callback  上传完成后的回调函数
+ */
 module.exports.uploadImg = (files = [], callback = () => { }) => {
   let path = '/api/upload';
   let result = [];
@@ -27,3 +33,142 @@ module.exports.uploadImg = (files = [], callback = () => { }) => {
     })
   })
 }
+
+
+
+/**
+ * 
+ * 
+ * 标签部分api
+ * 
+ * 
+ * 
+ */
+
+
+
+/**
+ * 
+ * @param {*} tag 要添加的标签对象
+ * @param {*} callback 完成的回调函数
+ */
+module.exports.addTag = (tag = {}, callback = () => { }) => {
+
+}
+
+/**
+ * 修改一个标签
+ * @param {*} desc 修改的标签对象 包含ObjectId
+ * @param {*} callback 完成的回调函数
+ */
+module.exports.setTag = (desc = {}, callback = () => { }) => {
+
+}
+
+/**
+ * 删除一条标签信息
+ * @param {*} _id  ObjectId
+ * @param {*} callback  完成后的回调函数
+ */
+module.exports.removeTag = (_id, callback = () => { }) => {
+
+}
+
+/**
+ * 获取所有标签
+ * @param {Function} callback 
+ */
+module.exports.getTagList = (callback = () => { }) => {
+
+}
+
+
+
+/**
+ * 
+
+ 商品部分api
+
+
+
+ */
+
+
+/**
+ * 添加一个商品
+ * @param {*} desc  添加的商品对象
+ * @param {*} callback  完成后执行的回调函数
+ */
+module.exports.addProduct = (desc = {}, callback = () => { }) => {
+
+}
+
+/**
+ * 修改一个商品
+ * @param {*} desc 修改的商品对象
+ * @param {*} callback  完成的回调函数
+ */
+module.exports.setProduct = (desc = {}, callback = () => { }) => {
+
+}
+
+/**
+ * 删除一条商品数据
+ * @param {String} _id  ObjectId
+ * @param {Function} callback  完成后的回调函数
+ */
+module.exports.removeProduct = (_id, callback = () => { }) => {
+
+}
+
+/**
+ * 获取商品列表，用于展示
+ * @param {Number} state 商品状态  0上架销售中 1待上架 2下架 -1为全部
+ * @param {Function} callback 成功后回调函数
+ */
+module.exports.getProductList = (state, callback = () => { }) => {
+
+}
+
+
+
+/**
+ * 
+ * 
+ * 订单部分api
+ * 
+ * 
+ * 
+ */
+
+/**
+ * 获取订单列表，如果是全部订单需要分页，state传-1，需要传page参数和size参数，
+ * 如果是查询带状态的订单，传参state，不需要传其他参数
+ * @param {Number} state 订单状态获取全部订单的话传-1
+ * @param {Number} page 分页的话传此参数
+ * @param {Number} size 分页的话传此参数
+ */
+module.exports.getOrderList = (state, page, size, callback = () => { }) => {
+
+}
+
+/**
+ * 修改一条订单
+ * @param {*} desc 修改的订单对象
+ * @param {*} callback  完成后的回调函数
+ */
+module.exports.setOrider = (desc = {}, callback = () => { }) => {
+
+}
+
+
+/**
+ * 
+ * 
+ * 搜索部分api
+ * 订单列表部分 ： 商品名称  订单编号  手机号搜索
+ * 
+ * 
+ * 商品列表 ： 商品名称
+ * 
+ */
