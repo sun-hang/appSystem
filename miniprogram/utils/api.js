@@ -235,6 +235,20 @@ module.exports.getProductStateList = (state, page = 1, size = 10, ctime = -1, ca
 
 }
 
+/**
+ * 获取单个商品信息
+ * @param {String} _id 
+ * @param {Function} callback 
+ */
+module.exports.getOneProduct = (_id, callback = () => {}) => {
+  const path = `/api/product/${_id}`;
+  wx.request({
+    url: url + path,
+    method: "GET",
+    success: success(callback),
+    fail: fail(callback)
+  })
+}
 
 
 /**
@@ -250,11 +264,32 @@ module.exports.getProductStateList = (state, page = 1, size = 10, ctime = -1, ca
  * 获取订单列表，如果是全部订单需要分页，state传-1，需要传page参数和size参数，
  * 如果是查询带状态的订单，传参state，不需要传其他参数
  * @param {Number} state 订单状态获取全部订单的话传-1
- * @param {Number} page 分页的话传此参数
- * @param {Number} size 分页的话传此参数
+ * @param {Number} page 分页的话传此参数 传入-1不进行分页表
+ * @param {Number} size 分页的话传此参数 
  */
-module.exports.getOrderList = (state, page, size, callback = () => {}) => {
+module.exports.getOrderList = (state = -1, page = 1, size = 10, callback = () => {}) => {
+  const path = `/api/order?state=${state}&page=${page}&size=${size}`;
+  wx.request({
+    url: url + path,
+    method: "GET",
+    success: success(callback),
+    fail: fail(callback)
+  })
+}
 
+/**
+ * 获取单个订单信息
+ * @param {String} _id 
+ * @param {Function} callback 
+ */
+module.exports.getOneOrder = (_id, callback = () => {}) => {
+  const path = `/api/order/id?id=${_id}`;
+  wx.request({
+    url: url + path,
+    method: "GET",
+    success: success(callback),
+    fail: fail(callback)
+  })
 }
 
 /**
@@ -263,7 +298,19 @@ module.exports.getOrderList = (state, page, size, callback = () => {}) => {
  * @param {*} callback  完成后的回调函数
  */
 module.exports.setOrider = (desc = {}, callback = () => {}) => {
+  const path = `/api/order/${desc._id}`;
 
+  wx.request({
+    url: url + path,
+    method: "PUT",
+    dataType: "json",
+    data: desc,
+    header: {
+      'content-type': 'application/json'
+    },
+    success: success(callback),
+    fail: fail(callback)
+  })
 }
 
 /**
@@ -272,7 +319,14 @@ module.exports.setOrider = (desc = {}, callback = () => {}) => {
  * @param {Function} callback  完成后的回调函数
  */
 module.exports.removeOrder = (_id, callback = () => {}) => {
+  const path = `/api/order/${_id}`;
 
+  wx.request({
+    url: url + path,
+    method: "DELETE",
+    success: success(callback),
+    fail: fail(callback)
+  })
 }
 
 /**
@@ -287,22 +341,28 @@ module.exports.removeOrder = (_id, callback = () => {}) => {
  */
 
 /**
- * 根据商品名称订单编号和手机号进行搜索查询
+ * 根据商品名称订单编号和手机号进行搜索查询用户昵称
  * @param {String} productName 
  * @param {String} orderNumber 
  * @param {String} phone 
+ * @param {String} Nickname
  * @param {Function} callback 
  */
-module.exports.queryOrder = (productName = "", orderNumber = "", phone = "", callback = () => {}) => {
+module.exports.queryOrder = (productName = "", orderNumber = "", phone = "", Nickname = "", callback = () => {}) => {
 
 }
 
 /**
  * 根据商品名称和标签进行查询商品
- * @param {String} productName 
- * @param {String} tag 
+ * @param {String} query 
  * @param {Function} callback 
  */
-module.exports.queryProduct = (productName = "", tag = "", callback = () => {}) => {
-
+module.exports.queryProduct = (query = "", callback = () => {}) => {
+  const path = `/api/product?query=${query}`;
+  wx.request({
+    url: url + path,
+    method: "GET",
+    success: success(callback),
+    fail: fail(callback)
+  })
 }

@@ -193,3 +193,218 @@ App({
 // api.addProduct(obj, (err, res) => {
 //   console.log(err, res)
 // })
+
+// api.getOrderList(-1, -1, 2, (err, res) => {
+//   console.log(err, res)
+// })
+
+/**
+ * result:
+ctime: 1619518455499
+currentPric: 32
+detail: "院此二提目片南市省政包龙率改组参。参件能般完相就林门因命备火儿支。"
+imgs: (6) ["newZb9IkZLdAYiD312dd84e3fd4b256b37e2f6ee7b77f1a161233201379936.jpg", "newf9QlpPYK7pZP414edfea3507fcd7f399236d21c18ef0161233201398476.jpg", "newhvzvVJnyB2XX7df10e59c52057a3b72b79fcb1535f97161233201381488.jpg", "newZb9IkZLdAYiD312dd84e3fd4b256b37e2f6ee7b77f1a161233201379936.jpg", "newf9QlpPYK7pZP414edfea3507fcd7f399236d21c18ef0161233201398476.jpg", "newhvzvVJnyB2XX7df10e59c52057a3b72b79fcb1535f97161233201381488.jpg"]
+options: (2) [{…}, {…}]
+optionsDetail: (9) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+originPric: 251
+productName: "迪奥999"
+state: false
+stock: 13
+tag: "阿玛尼,粉底液"
+__v: 0
+_id: "6087e3f7391d1359ac4715c2"
+ */
+// api.getOneProduct("6087e3f7391d1359ac4715c2", (err, res) => {
+//   console.log(err, res)
+// })
+
+// api.getOneOrder("60a6324dbc21584b6077cfa0", (err, res) => {
+//   console.log(err, res)
+// })
+// const obj = {
+//   "_id": ("60a6324dbc21584b6077cfa0"),
+//   "isDelete": false,
+//   "products": [{
+//       "imgs": [
+//         "newZb9IkZLdAYiD312dd84e3fd4b256b37e2f6ee7b77f1a161233201379936.jpg",
+//         "newf9QlpPYK7pZP414edfea3507fcd7f399236d21c18ef0161233201398476.jpg",
+//         "newhvzvVJnyB2XX7df10e59c52057a3b72b79fcb1535f97161233201381488.jpg",
+//         "newZb9IkZLdAYiD312dd84e3fd4b256b37e2f6ee7b77f1a161233201379936.jpg",
+//         "newf9QlpPYK7pZP414edfea3507fcd7f399236d21c18ef0161233201398476.jpg",
+//         "newhvzvVJnyB2XX7df10e59c52057a3b72b79fcb1535f97161233201381488.jpg"
+//       ],
+//       "state": false,
+//       "_id": ("6087e3f7391d1359ac4715c2"),
+//       "productName": "迪奥999",
+//       "originPric": 251,
+//       "currentPric": 32,
+//       "detail": "院此二提目片南市省政包龙率改组参。参件能般完相就林门因命备火儿支。",
+//       "tag": "阿玛尼,粉底液",
+//       "stock": 12,
+//       "options": [{
+//           "child": [
+//             "999",
+//             "888",
+//             "777"
+//           ],
+//           "_id": ("6087e3f7391d1359ac4715c3"),
+//           "name": "色号"
+//         },
+//         {
+//           "child": [
+//             "大",
+//             "中",
+//             "小"
+//           ],
+//           "_id": ("6087e3f7391d1359ac4715c4"),
+//           "name": "大小"
+//         }
+//       ],
+//       "optionsDetail": [{
+//           "_id": ("6087e3f7391d1359ac4715c5"),
+//           "type": "999-大",
+//           "price": 170,
+//           "total": 1
+//         },
+//         {
+//           "_id": ("60a6324dbc21584b6077cfa5"),
+//           "type": "999-中",
+//           "price": 160,
+//           "total": 2
+//         },
+//         {
+//           "_id": ("60a6324dbc21584b6077cfa6"),
+//           "type": "999-小",
+//           "price": 150,
+//           "total": 2
+//         },
+//         {
+//           "_id": ("60a6324dbc21584b6077cfa7"),
+//           "type": "888-大",
+//           "price": 140,
+//           "total": 2
+//         },
+//         {
+//           "_id": ("60a6324dbc21584b6077cfa8"),
+//           "type": "888-中",
+//           "price": 130,
+//           "total": 2
+//         },
+//         {
+//           "_id": ("60a6324dbc21584b6077cfa9"),
+//           "type": "888-小",
+//           "price": 120,
+//           "total": 2
+//         },
+//         {
+//           "_id": ("60a6324dbc21584b6077cfaa"),
+//           "type": "777-大",
+//           "price": 110,
+//           "total": 2
+//         },
+//         {
+//           "_id": ("60a6324dbc21584b6077cfab"),
+//           "type": "777-中",
+//           "price": 100,
+//           "total": 2
+//         },
+//         {
+//           "_id": ("60a6324dbc21584b6077cfac"),
+//           "type": "777-小",
+//           "price": 90,
+//           "total": 2
+//         }
+//       ],
+//       "ctime": 1619518455499.0,
+//       "type": {
+//         "_id": ("60a6324dbc21584b6077cfad"),
+//         "name": "999-大",
+//         "price": 170,
+//         "count": 1,
+//         "checked": true,
+//         "stock": 1,
+//         "total": 170
+//       }
+//     },
+//     {
+//       "imgs": [
+//         "newZb9IkZLdAYiD312dd84e3fd4b256b37e2f6ee7b77f1a161233201379936.jpg",
+//         "newf9QlpPYK7pZP414edfea3507fcd7f399236d21c18ef0161233201398476.jpg",
+//         "newhvzvVJnyB2XX7df10e59c52057a3b72b79fcb1535f97161233201381488.jpg",
+//         "newZb9IkZLdAYiD312dd84e3fd4b256b37e2f6ee7b77f1a161233201379936.jpg",
+//         "newf9QlpPYK7pZP414edfea3507fcd7f399236d21c18ef0161233201398476.jpg",
+//         "newhvzvVJnyB2XX7df10e59c52057a3b72b79fcb1535f97161233201381488.jpg"
+//       ],
+//       "state": false,
+//       "_id": ("6087e41e391d1359ac471c5e"),
+//       "productName": "因感细",
+//       "originPric": 232,
+//       "currentPric": 111,
+//       "detail": "究该然分际是号条按色边温群话。省级受更十作务确为西构么其。",
+//       "tag": "娇兰,面霜",
+//       "stock": 17,
+//       "options": [{
+//           "child": [
+//             "999",
+//             "888",
+//             "777"
+//           ],
+//           "_id": ("6087e41e391d1359ac471c5f"),
+//           "name": "色号"
+//         },
+//         {
+//           "child": [
+//             "大",
+//             "中",
+//             "小"
+//           ],
+//           "_id": ("6087e41e391d1359ac471c60"),
+//           "name": "大小"
+//         }
+//       ],
+//       "optionsDetail": [{
+//         "_id": ("6087e41e391d1359ac471c61"),
+//         "type": "999-大",
+//         "price": 120,
+//         "total": 1
+//       }],
+//       "ctime": 1619518494737.0,
+//       "type": {
+//         "_id": ("60a6324dbc21584b6077cfb2"),
+//         "name": "999-大",
+//         "price": 120,
+//         "count": 1,
+//         "checked": true,
+//         "stock": 1,
+//         "total": 120
+//       }
+//     }
+//   ],
+//   "adminId": ("60acd0ad4c09c846cc53218b"),
+//   "address": {
+//     "isDefault": false,
+//     "_id": ("60a6324dbc21584b6077cfb3"),
+//     "userName": "孙山峰",
+//     "province": "河南省",
+//     "city": "焦作市",
+//     "county": "山阳区",
+//     "detail": "姜河小区34号楼",
+//     "phone": "17634835772"
+//   },
+//   "state": 4,
+//   "orderTime": 1621504589486.0,
+//   "__v": 0,
+//   "orderNumber": "fmjb1621839327713"
+// }
+//data: {n: 1, nModified: 1, ok: 1}
+// api.setOrider(obj, (err, res) => {
+//   console.log(err, res)
+// })
+// data: {n: 1, ok: 1, deletedCount: 1}
+// api.removeOrder(("60a6324dbc21584b6077cfa0"), (err, res) => {
+//   console.log(err,res)
+// })
+
+// api.queryProduct('小方', (err, res) => {
+//   console.log(err, res)
+// })
