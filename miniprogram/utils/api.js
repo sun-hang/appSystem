@@ -18,7 +18,7 @@ const fail = (callback) => {
  * @param {Array} files  图片临时路径数组
  * @param {Function} callback  上传完成后的回调函数
  */
-module.exports.uploadImg = (files = [], callback = () => { }) => {
+module.exports.uploadImg = (files = [], callback = () => {}) => {
   let path = '/api/upload';
   let result = [];
   let count = 0;
@@ -64,7 +64,7 @@ module.exports.uploadImg = (files = [], callback = () => { }) => {
  * @param {*} tag 要添加的标签对象
  * @param {*} callback 完成的回调函数
  */
-module.exports.addTag = (tag = {}, callback = () => { }) => {
+module.exports.addTag = (tag = {}, callback = () => {}) => {
   let path = `/api/tag`;
 
   wx.request({
@@ -85,7 +85,7 @@ module.exports.addTag = (tag = {}, callback = () => { }) => {
  * @param {*} desc 修改的标签对象 包含ObjectId
  * @param {*} callback 完成的回调函数
  */
-module.exports.setTag = (desc = {}, callback = () => { }) => {
+module.exports.setTag = (desc = {}, callback = () => {}) => {
   let path = `/api/tag/${desc._id}`;
   wx.request({
     url: url + path,
@@ -105,7 +105,7 @@ module.exports.setTag = (desc = {}, callback = () => { }) => {
  * @param {*} _id  ObjectId
  * @param {*} callback  完成后的回调函数
  */
-module.exports.removeTag = (_id, callback = () => { }) => {
+module.exports.removeTag = (_id, callback = () => {}) => {
   let path = `/api/tag/${_id}`;
   wx.request({
     url: url + path,
@@ -123,7 +123,7 @@ module.exports.removeTag = (_id, callback = () => { }) => {
  * 获取所有标签
  * @param {Function} callback 
  */
-module.exports.getTagList = (callback = () => { }) => {
+module.exports.getTagList = (callback = () => {}) => {
   let path = `/api/tag`;
   wx.request({
     url: url + path,
@@ -155,8 +155,20 @@ module.exports.getTagList = (callback = () => { }) => {
  * @param {*} desc  添加的商品对象
  * @param {*} callback  完成后执行的回调函数
  */
-module.exports.addProduct = (desc = {}, callback = () => { }) => {
+module.exports.addProduct = (desc = {}, callback = () => {}) => {
+  const path = `/api/product`;
 
+  wx.request({
+    url: url + path,
+    method: "POST",
+    header: {
+      "content-type": "application/json"
+    },
+    data: desc,
+    dataType: "json",
+    success: success(callback),
+    fail: fail(callback)
+  })
 }
 
 /**
@@ -164,8 +176,20 @@ module.exports.addProduct = (desc = {}, callback = () => { }) => {
  * @param {*} desc 修改的商品对象
  * @param {*} callback  完成的回调函数
  */
-module.exports.setProduct = (desc = {}, callback = () => { }) => {
+module.exports.setProduct = (desc = {}, callback = () => {}) => {
+  const path = `/api/product/${desc._id}`;
 
+  wx.request({
+    url: url + path,
+    method: "PUT",
+    dataType: "json",
+    data: desc,
+    header: {
+      'content-type': 'application/json'
+    },
+    success: success(callback),
+    fail: fail(callback)
+  })
 }
 
 /**
@@ -173,17 +197,42 @@ module.exports.setProduct = (desc = {}, callback = () => { }) => {
  * @param {String} _id  ObjectId
  * @param {Function} callback  完成后的回调函数
  */
-module.exports.removeProduct = (_id, callback = () => { }) => {
-
+module.exports.removeProduct = (_id, callback = () => {}) => {
+  const path = `/api/product/${_id}`;
+  wx.request({
+    url: url + path,
+    method: "DELETE",
+    dataType: "json",
+    header: {
+      'content-type': 'application/json'
+    },
+    success: success(callback),
+    fail: fail(callback)
+  })
 }
 
 /**
  * 获取商品列表，用于展示
  * @param {Number} state 商品状态  0上架销售中 1待上架 2下架 -1为全部
  * @param {Function} callback 成功后回调函数
+ * @param {Number} page 分页当前页码
+ * @param {Number} size  分页页容量
+ * @param {Number} ctime 排序规则 用于根据创建时间排序 -1为倒叙 1为正序
  */
-module.exports.getProductList = (state, callback = () => { }) => {
-  let path = `/api/product?state=${state}`;
+module.exports.getProductStateList = (state, page = 1, size = 10, ctime = -1, callback = () => {}) => {
+  let path = `/api/product?state=${state}&page=${page}&size=${size}&ctime=${ctime}`;
+
+  wx.request({
+    url: url + path,
+    method: "GET",
+    dataType: "json",
+    header: {
+      'content-type': 'application/json'
+    },
+    success: success(callback),
+    fail: fail(callback)
+  })
+
 }
 
 
@@ -204,7 +253,7 @@ module.exports.getProductList = (state, callback = () => { }) => {
  * @param {Number} page 分页的话传此参数
  * @param {Number} size 分页的话传此参数
  */
-module.exports.getOrderList = (state, page, size, callback = () => { }) => {
+module.exports.getOrderList = (state, page, size, callback = () => {}) => {
 
 }
 
@@ -213,10 +262,18 @@ module.exports.getOrderList = (state, page, size, callback = () => { }) => {
  * @param {*} desc 修改的订单对象
  * @param {*} callback  完成后的回调函数
  */
-module.exports.setOrider = (desc = {}, callback = () => { }) => {
+module.exports.setOrider = (desc = {}, callback = () => {}) => {
 
 }
 
+/**
+ * 删除一条订单数据  
+ * @param {String} _id  订单的objectID 
+ * @param {Function} callback  完成后的回调函数
+ */
+module.exports.removeOrder = (_id, callback = () => {}) => {
+
+}
 
 /**
  *
@@ -228,3 +285,24 @@ module.exports.setOrider = (desc = {}, callback = () => { }) => {
  * 商品列表 ： 商品名称
  *
  */
+
+/**
+ * 根据商品名称订单编号和手机号进行搜索查询
+ * @param {String} productName 
+ * @param {String} orderNumber 
+ * @param {String} phone 
+ * @param {Function} callback 
+ */
+module.exports.queryOrder = (productName = "", orderNumber = "", phone = "", callback = () => {}) => {
+
+}
+
+/**
+ * 根据商品名称和标签进行查询商品
+ * @param {String} productName 
+ * @param {String} tag 
+ * @param {Function} callback 
+ */
+module.exports.queryProduct = (productName = "", tag = "", callback = () => {}) => {
+
+}

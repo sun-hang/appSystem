@@ -39,3 +39,157 @@ App({
 // api.getTagList((err, res) => {
 //   console.log(err, res)
 // })
+
+
+// api.getProductStateList  为验证，服务器还为更新最新源代码
+
+
+
+// {
+//   deletedCount: 0  删除的数量
+//   n: 0  数量
+//   ok: 1   是否OK
+// }
+// api.removeProduct('6087e3f7391d1359ac4716b2', (err, res) => {
+//   console.log(err, res);
+// })
+
+
+
+// let obj = {
+//   "_id": "6087e3f7391d1359ac4716ce",
+//   "imgs": [
+//     "newZb9IkZLdAYiD312dd84e3fd4b256b37e2f6ee7b77f1a161233201379936.jpg",
+//     "newf9QlpPYK7pZP414edfea3507fcd7f399236d21c18ef0161233201398476.jpg",
+//     "newhvzvVJnyB2XX7df10e59c52057a3b72b79fcb1535f97161233201381488.jpg",
+//     "newZb9IkZLdAYiD312dd84e3fd4b256b37e2f6ee7b77f1a161233201379936.jpg",
+//     "newf9QlpPYK7pZP414edfea3507fcd7f399236d21c18ef0161233201398476.jpg",
+//     "newhvzvVJnyB2XX7df10e59c52057a3b72b79fcb1535f97161233201381488.jpg"
+//   ],
+//   "productName": "声题值光科",
+//   "originPric": 390,
+//   "currentPric": 81,
+//   "detail": "革是更在参我五回特要手很米在又题。称亲产员运指位风被活口件全命称才。",
+//   "tag": "迪奥,眼霜",
+//   "stock": 29,
+//   "options": [{
+//       "child": [
+//         "999",
+//         "888",
+//         "777"
+//       ],
+//       "_id": "6087e3f7391d1359ac4716cf",
+//       "name": "色号"
+//     },
+//     {
+//       "child": [
+//         "大",
+//         "中",
+//         "小"
+//       ],
+//       "_id": "6087e3f7391d1359ac4716d0",
+//       "name": "大小"
+//     }
+//   ],
+//   state: 1,
+//   "optionsDetail": [{
+//     "_id": "6087e3f7391d1359ac4716d1",
+//     "type": "999-大",
+//     "price": 120,
+//     "total": 2
+//   }],
+//   "ctime": 1619518455603.0,
+//   "__v": 0
+// }
+
+// /**
+//  * data: {n: 1, nModified: 1, ok: 1} result
+//  */
+// api.setProduct(obj, (err, res) => {
+//   console.log(err, res)
+// })
+
+// let obj = {
+//   "imgs": [
+//     "newZb9IkZLdAYiD312dd84e3fd4b256b37e2f6ee7b77f1a161233201379936.jpg",
+//     "newf9QlpPYK7pZP414edfea3507fcd7f399236d21c18ef0161233201398476.jpg",
+//     "newhvzvVJnyB2XX7df10e59c52057a3b72b79fcb1535f97161233201381488.jpg",
+//     "newZb9IkZLdAYiD312dd84e3fd4b256b37e2f6ee7b77f1a161233201379936.jpg",
+//     "newf9QlpPYK7pZP414edfea3507fcd7f399236d21c18ef0161233201398476.jpg",
+//     "newhvzvVJnyB2XX7df10e59c52057a3b72b79fcb1535f97161233201381488.jpg"
+//   ],
+//   "productName": "小方",
+//   "originPric": 390,
+//   "currentPric": 81,
+//   "detail": "测试后台用数据测试后台用数据测试后台用数据测试后台用数据测试后台用数据",
+//   "tag": "迪奥,眼霜",
+//   "stock": 29,
+//   "options": [{
+//       "child": [
+//         "红",
+//         "绿",
+//         "蓝"
+//       ],
+//       "name": "颜色"
+//     },
+//     {
+//       "child": [
+//         "大",
+//         "中",
+//         "小"
+//       ],
+//       "name": "大小"
+//     }
+//   ],
+//   state: 1,
+//   "optionsDetail": [{
+//       "type": "红-大",
+//       "price": 120,
+//       "total": 2
+//     },
+//     {
+//       "type": "绿-大",
+//       "price": 120,
+//       "total": 2
+//     },
+//     {
+//       "type": "蓝-大",
+//       "price": 120,
+//       "total": 2
+//     },
+//     {
+//       "type": "红-中",
+//       "price": 100,
+//       "total": 2
+//     },
+//     {
+//       "type": "绿-中",
+//       "price": 100,
+//       "total": 2
+//     },
+//     {
+//       "type": "蓝-中",
+//       "price": 100,
+//       "total": 2
+//     },
+//     {
+//       "type": "红-小",
+//       "price": 80,
+//       "total": 2
+//     },
+//     {
+//       "type": "绿-小",
+//       "price": 80,
+//       "total": 2
+//     },
+//     {
+//       "type": "蓝-小",
+//       "price": 80,
+//       "total": 2
+//     }
+//   ]
+// }
+
+// api.addProduct(obj, (err, res) => {
+//   console.log(err, res)
+// })
