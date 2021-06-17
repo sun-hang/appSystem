@@ -5,14 +5,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    files: [],
-    imgs: [],
-    titleValue: '',
-    isFocu: false,
-    titleMaxLength: 30,
-    detailMaxLength: 220,
-    detailValue: '',
-    detailIsFocu: false
+    files: [], //图片上传列表图片地址
+    imgs: [], //上传后返回的地址
+    titleValue: '', // 商品标题文本
+    isFocu: false, //商品标题文本域是否聚焦
+    titleMaxLength: 30, //标题最大字数
+    detailMaxLength: 220, //商品详情最大字数
+    detailValue: '', //商品详情的文本
+    detailIsFocu: false, //商品详情文本域是否聚焦
+    multiArray: [], //标签选择器的显示文本数据
+    tagList: [], //请求返回的全部标签内容
+    selectTags: [], //选中的标签内容可以时多个
+    priceValue: "", //商品价格
+    originPriceValue: "", //商品原价
+    stockValue: '', //商品库存
+    productOption: [], //商品规格信息
+    productOptionDetail: [] // 商品规格详情
   },
 
   /**
@@ -153,6 +161,21 @@ Page({
     }
   },
 
+  selectTagColumnchange(e) {
+    if (e.detail.column == 0) {
+      let index = e.detail.value;
+      let multiArray = this.data.multiArray;
+      multiArray[1] = this.data.tagList[index].child;
+      this.setData({
+        multiArray
+      })
+    }
+  },
+
+  selectTagValueChange(e) {
+    console.log(e)
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -174,7 +197,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    api.getTagList((err, res) => {
+      if (res.data) {
+        let tagTitle = [];
+        let tagChild = [...res.data[0].child];
+        res.data.forEach(item => {
+          tagTitle.push(item.title);
+        })
 
+        this.setData({
+          tagList: res.data,
+          multiArray: [tagTitle, tagChild]
+        })
+      }
+    })
   },
 
   /**

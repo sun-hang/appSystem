@@ -333,7 +333,7 @@ module.exports.removeOrder = (_id, callback = () => {}) => {
  *
  *
  * 搜索部分api
- * 订单列表部分 ： 商品名称  订单编号  手机号搜索
+ * 订单列表部分 ：   订单编号  手机号搜索
  *
  *
  * 商品列表 ： 商品名称
@@ -341,16 +341,20 @@ module.exports.removeOrder = (_id, callback = () => {}) => {
  */
 
 /**
- * 根据商品名称订单编号和手机号进行搜索查询用户昵称
- * @param {String} productName 
- * @param {String} orderNumber 
- * @param {String} phone 
- * @param {String} Nickname
+ * 根据收件人名称订单编号和手机号进行搜索查询用户昵称
+ * @param {String} query
  * @param {Function} callback 
  */
-module.exports.queryOrder = (productName = "", orderNumber = "", phone = "", Nickname = "", callback = () => {}) => {
-
+module.exports.queryOrder = (query = "", callback = () => {}) => {
+  const path = `/api/order?query=${query}&state=${-1}`;
+  wx.request({
+    url: url + path,
+    method: "GET",
+    success: success(callback),
+    fail: fail(callback)
+  })
 }
+
 
 /**
  * 根据商品名称和标签进行查询商品

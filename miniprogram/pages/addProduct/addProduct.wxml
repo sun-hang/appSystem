@@ -73,7 +73,9 @@
         类目
       </view>
       <view class="right">
-
+        <picker mode="multiSelector" range="{{multiArray}}" bindcolumnchange="selectTagColumnchange" bindchange="selectTagValueChange">
+          <view class="right_select">请选择<mp-icon icon="arrow" color="#a7a4a4" size="{{12}}" style="margin-left:10rpx;"></mp-icon></view>
+        </picker>
       </view>
     </view>
 
