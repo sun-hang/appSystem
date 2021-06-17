@@ -61,8 +61,8 @@
     <!-- 详情项 -->
     <view class="product_detail_container">
       <view class="title_box">商品详情</view>
-      <textarea data-name="detail" auto-height placeholder="商品详情介绍，限220字符" bindinput="titleInputChange" bindfocus="titleFocus" bindblur="titleBlur"
-        maxlength="{{detailMaxLength}}"></textarea>
+      <textarea data-name="detail" auto-height placeholder="商品详情介绍，限220字符" bindinput="titleInputChange"
+        bindfocus="titleFocus" bindblur="titleBlur" maxlength="{{detailMaxLength}}"></textarea>
       <view class="length" wx:if="{{detailIsFocu}}">{{detailValue.length}}/{{detailMaxLength}}</view>
     </view>
 
@@ -73,15 +73,47 @@
         类目
       </view>
       <view class="right">
-        <picker mode="multiSelector" range="{{multiArray}}" bindcolumnchange="selectTagColumnchange" bindchange="selectTagValueChange">
-          <view class="right_select">请选择<mp-icon icon="arrow" color="#a7a4a4" size="{{12}}" style="margin-left:10rpx;"></mp-icon></view>
+        <picker mode="multiSelector" range="{{multiArray}}" bindcolumnchange="selectTagColumnchange"
+          bindchange="selectTagValueChange">
+          <view class="right_select">请选择<mp-icon icon="arrow" color="#a7a4a4" size="{{12}}" style="margin-left:10rpx;">
+            </mp-icon>
+          </view>
         </picker>
+      </view>
+      <view class="tag_item_container">
+        <block wx:for="{{selectTags}}" >
+          <my-tag-item tag="{{item}}" bind:close="tagCloseClick" index="{{index}}" wx:key="{{item}}"></my-tag-item>
+        </block>
+      </view>
+    </view>
+    
+    <!-- 是否上架 -->
+    <view class="product_state_container">
+      <view class="product_item_box">
+        <view class="left">
+          <text class="required" style="opacity: 0;">*</text>
+          上架
+        </view>
+        <view class="right">
+          <switch checked="{{productState}}" bindchange="stateChange"></switch>
+        </view>
       </view>
     </view>
 
     <!-- 规格项，添加以后会显示 -->
     <view class="product_option_container">
-
+      
     </view>
+
+    <!-- 最底部按钮菜单 -->
+    <view class="product_bottom_container">
+      <view class="title_menu_box">
+      
+      </view>
+      <view class="btns_box">
+        
+      </view>
+    </view>
+
   </view>
 </view>

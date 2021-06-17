@@ -1,0 +1,19 @@
+.tagItem_container {
+  margin: 10rpx 15rpx;
+  font-size: 28rpx;
+}
+
+.tagItem_inner_container {
+  padding: 4rpx 35rpx 4rpx 15rpx;
+  border: 1px solid rgb(170, 169, 169);
+  border-radius: 12rpx;
+  position: relative;
+  color: #2b2b2b;
+}
+
+.tagItem_inner_container mp-icon {
+  position: absolute;
+  top: -24rpx;
+  right: -18rpx;
+  cursor: pointer;
+}

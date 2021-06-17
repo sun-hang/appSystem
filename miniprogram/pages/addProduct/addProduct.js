@@ -20,7 +20,8 @@ Page({
     originPriceValue: "", //商品原价
     stockValue: '', //商品库存
     productOption: [], //商品规格信息
-    productOptionDetail: [] // 商品规格详情
+    productOptionDetail: [], // 商品规格详情
+    productState: false //是否上架
   },
 
   /**
@@ -161,6 +162,10 @@ Page({
     }
   },
 
+  /**
+   * 标签选择器列变换事件
+   * @param {*} e 
+   */
   selectTagColumnchange(e) {
     if (e.detail.column == 0) {
       let index = e.detail.value;
@@ -172,8 +177,40 @@ Page({
     }
   },
 
+  /**
+   * 标签选择器值变换事件
+   * @param {*} e 
+   */
   selectTagValueChange(e) {
-    console.log(e)
+    let titleIndex = e.detail.value[0];
+    let childIndex = e.detail.value[1];
+    let tag = this.data.tagList[titleIndex].child[childIndex];
+    this.setData({
+      selectTags: [...new Set([...this.data.selectTags, tag])]
+    })
+  },
+
+  /**
+   * 选中标签取消事件
+   * @param {*} e 
+   */
+  tagCloseClick(e) {
+    let index = e.detail;
+    let selectTags = this.data.selectTags;
+    selectTags.splice(index, 1);
+    this.setData({
+      selectTags
+    })
+  },
+
+  /**
+   * 商品是否上架状态改变事件
+   * @param {*} e 
+   */
+  stateChange(e) {
+    this.setData({
+      productState: e.detail.value
+    })
   },
 
   /**

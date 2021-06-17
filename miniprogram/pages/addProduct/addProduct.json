@@ -3,7 +3,8 @@
     "mp-uploader": "weui-miniprogram/uploader/uploader",
     "mp-icon": "weui-miniprogram/icon/icon",
     "mp-cells": "weui-miniprogram/cells/cells",
-    "mp-cell": "weui-miniprogram/cell/cell"
+    "mp-cell": "weui-miniprogram/cell/cell",
+    "my-tag-item": "../../components/public/tagItem/tagItem"
   },
   "navigationBarBackgroundColor": "#fff"
 }

@@ -1,0 +1,6 @@
+<view class="tagItem_container">
+  <view class="tagItem_inner_container">
+    <text>{{tag}}</text>
+    <mp-icon icon="close2" color="#f20" size="{{22}}" bindtap="closeClick"></mp-icon>
+  </view>
+</view>
