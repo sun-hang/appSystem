@@ -81,12 +81,12 @@
         </picker>
       </view>
       <view class="tag_item_container">
-        <block wx:for="{{selectTags}}" >
+        <block wx:for="{{selectTags}}">
           <my-tag-item tag="{{item}}" bind:close="tagCloseClick" index="{{index}}" wx:key="{{item}}"></my-tag-item>
         </block>
       </view>
     </view>
-    
+
     <!-- 是否上架 -->
     <view class="product_state_container">
       <view class="product_item_box">
@@ -102,16 +102,17 @@
 
     <!-- 规格项，添加以后会显示 -->
     <view class="product_option_container">
-      
+
     </view>
 
     <!-- 最底部按钮菜单 -->
     <view class="product_bottom_container">
       <view class="title_menu_box">
-      
+        <text>添加规格</text>
+        <text>添加详情</text>
       </view>
       <view class="btns_box">
-        
+        <text>添加商品</text>
       </view>
     </view>
 
