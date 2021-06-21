@@ -4,7 +4,8 @@
     "mp-icon": "weui-miniprogram/icon/icon",
     "mp-cells": "weui-miniprogram/cells/cells",
     "mp-cell": "weui-miniprogram/cell/cell",
-    "my-tag-item": "../../components/public/tagItem/tagItem"
+    "my-tag-item": "../../components/public/tagItem/tagItem",
+    "mp-toptips": "weui-miniprogram/toptips/toptips"
   },
   "navigationBarBackgroundColor": "#fff"
 }

@@ -11,7 +11,8 @@
     "pages/dataPage/dataPage",
     "pages/tag/tag",
     "pages/orderManagement/orderManagement",
-    "pages/productManagement/productManagement"
+    "pages/productManagement/productManagement",
+    "pages/addProductOption/addProductOption"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

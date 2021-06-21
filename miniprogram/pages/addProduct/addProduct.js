@@ -21,7 +21,9 @@ Page({
     stockValue: '', //商品库存
     productOption: [], //商品规格信息
     productOptionDetail: [], // 商品规格详情
-    productState: false //是否上架
+    productState: false, //是否上架
+    error: "", //错误提示消息
+    detailIsShow: false //详情文本域是否显示
   },
 
   /**
@@ -214,9 +216,71 @@ Page({
   },
 
   /**
+   * 错误消息提示隐藏事件
+   * @param {*} e 
+   */
+  msgHide(e) {
+    this.setData({
+      error: ""
+    })
+  },
+
+  /**
+   * 添加按钮点击事件
+   * @param {*} e 
+   */
+  addClick(e) {
+    if (!this.data.detailValue) {
+      this.setData({
+        error: "商品详情为空"
+      })
+    }
+  },
+
+  /**
+   *  @param {*} e 
+   * 修改按钮点击事件
+   */
+  setClick(e) {
+
+  },
+
+  /**
+   * 添加商品规格按钮点击事件
+   * @param {*} e 
+   */
+  optionClick(e) {
+    const that = this;
+    wx.navigateTo({
+      url: '../addProductOption/addProductOption',
+      events: {
+        data(data) {
+          console.log(data)
+        }
+      },
+      success(res) {
+        console.log('打通成功')
+      }
+    })
+  },
+
+  /**
+   * 添加商品详情事件
+   * @param {*} e 
+   */
+  addDetailClick(e) {
+    this.setData({
+      detailIsShow: true
+    })
+  },
+
+  /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    /**
+     * 如果传值的话进行修改
+     */
     this.setData({
       selectFile: this.selectFile.bind(this),
       uplaodFile: this.uplaodFile.bind(this)

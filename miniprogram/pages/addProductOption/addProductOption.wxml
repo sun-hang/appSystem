@@ -1,0 +1,16 @@
+<view class="addProductOption_container">
+  <view class="addProductOption_inner_container">
+    <view class="addProductOption_prop_container">
+      <block wx:for="{{optionPropLength}}">
+        <my-option-prop></my-option-prop>
+      </block>
+    </view>
+
+
+    <!-- 添加产品属性按钮 -->
+    <view class="addProductOption_add_btn_box" bindtap="addProp" wx:if="{{!(optionPropLength >= 2)}}">
+      <mp-icon icon="add" color="#a0a0fc" size="{{25}}"></mp-icon>
+      <view>添加商品规格</view>
+    </view>
+  </view>
+</view>

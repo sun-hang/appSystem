@@ -1,0 +1,26 @@
+.addProductOption_container {
+  width: 100%;
+}
+
+.addProductOption_inner_container {
+  width: 96%;
+  margin: 20rpx auto;
+  box-sizing: border-box;
+  padding: 20rpx 0;
+}
+
+.addProductOption_add_btn_box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 20rpx 10rpx;
+  box-sizing: border-box;
+  border-radius: 14rpx;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.addProductOption_add_btn_box > view{
+  margin-left: 15rpx;
+  color: #a0a0fc;
+}

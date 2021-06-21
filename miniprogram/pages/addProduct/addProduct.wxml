@@ -59,7 +59,7 @@
     </view>
 
     <!-- 详情项 -->
-    <view class="product_detail_container">
+    <view class="product_detail_container" wx:if="{{detailIsShow}}">
       <view class="title_box">商品详情</view>
       <textarea data-name="detail" auto-height placeholder="商品详情介绍，限220字符" bindinput="titleInputChange"
         bindfocus="titleFocus" bindblur="titleBlur" maxlength="{{detailMaxLength}}"></textarea>
@@ -108,13 +108,14 @@
     <!-- 最底部按钮菜单 -->
     <view class="product_bottom_container">
       <view class="title_menu_box">
-        <text>添加规格</text>
-        <text>添加详情</text>
+        <text bindtap="optionClick">添加规格</text>
+        <text bindtap="addDetailClick" wx:if="{{!detailIsShow}}">添加详情</text>
       </view>
       <view class="btns_box">
-        <text>添加商品</text>
+        <text wx:if="{{!index}}" bindtap="addClick">添加商品</text>
+        <text wx:else bindtap="setClick">确认修改</text>
       </view>
     </view>
-
   </view>
 </view>
+<mp-toptips msg="{{error}}" type="error" show="{{error}}" bindhide=""></mp-toptips>
