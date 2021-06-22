@@ -7,6 +7,10 @@
     </view>
 
 
+    <view class="addProductOption_add_btn_box" style="margin-bottom:20rpx;" bindtap="addProp" wx:if="{{(optionPropLength >= 1)}}">
+      <mp-icon icon="done2" color="#a0a0fc" size="{{25}}"></mp-icon>
+      <view>确认规格属性</view>
+    </view>
     <!-- 添加产品属性按钮 -->
     <view class="addProductOption_add_btn_box" bindtap="addProp" wx:if="{{!(optionPropLength >= 2)}}">
       <mp-icon icon="add" color="#a0a0fc" size="{{25}}"></mp-icon>

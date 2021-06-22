@@ -7,6 +7,7 @@ Page({
   data: {
     optionPropLength: 0
   },
+  
   click() {
     const event = this.getOpenerEventChannel();
     event.emit('data', {
@@ -14,8 +15,10 @@ Page({
     })
   },
 
+  /**
+   * 
+   */
   addProp() {
-    console.log(this.data.optionPropLength)
     if (this.data.optionPropLength >= 2) {
       return;
     }
