@@ -23,7 +23,8 @@ Component({
    */
   data: {
     propLength: 0,
-    propList: []
+    props: [],
+    tit: ""
   },
 
   lifetimes: {
@@ -34,7 +35,18 @@ Component({
       })
     }
   },
-
+  observers: {
+    title(title) {
+      this.setData({
+        tit: this.data.title
+      })
+    },
+    propList(props) {
+      this.setData({
+        props
+      })
+    }
+  },
   /**
    * 组件的方法列表
    */
@@ -44,8 +56,11 @@ Component({
      * @param {*} e 
      */
     addPropClick(e) {
+      let props = this.data.props;
+      props.push("")
       this.setData({
-        propLength: this.data.propLength + 1
+        propLength: this.data.propLength + 1,
+        props
       })
     },
     /**
@@ -54,11 +69,12 @@ Component({
      */
     deletePropClick(e) {
       let index = e.currentTarget.dataset.item;
-      let propLength = this.data.propLength - 1;
-      let propList = this.data.propList.splice(index, 1);
+      let propLength = this.data.props - 1;
+      let props = this.data.props;
+      props.splice(index, 1);
       this.setData({
         propLength,
-        propList
+        props
       })
     },
     /**
@@ -68,14 +84,17 @@ Component({
     inputChange(e) {
       let index = e.currentTarget.dataset.item;
       let value = e.detail.value;
-      let propList = this.data.propList;
-      propList[index] = value.trim();
+      let props = this.data.props;
+      props[index] = value.trim();
       this.setData({
-        propList
+        props
       })
-      console.log(this.data.title)
       this.data.changeHandle(() => {
-        this.triggerEvent('change', { name: this.data.title, child: this.data.propList, i: this.data.index })
+        this.triggerEvent('change', {
+          name: this.data.tit,
+          child: this.data.props,
+          i: this.data.index
+        })
       })
     },
 
@@ -85,8 +104,15 @@ Component({
      */
     titleChange(e) {
       let value = e.detail.value.trim();
+      this.setData({
+        tit: value
+      })
       this.data.changeHandle(() => {
-        this.triggerEvent('change', { name: value, child: this.data.propList, i: this.data.index })
+        this.triggerEvent('change', {
+          name: value,
+          child: this.data.props,
+          i: this.data.index
+        })
       })
     }
   }

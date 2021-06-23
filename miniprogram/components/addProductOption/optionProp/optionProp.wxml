@@ -12,7 +12,7 @@
         属性
       </view>
       <view class="input">
-        <input type="text" value="{{propList[index]}}" placeholder="规格属性" data-item="{{index}}"
+        <input type="text" value="{{props[index]}}" placeholder="规格属性" data-item="{{index}}"
           bindinput="inputChange" />
         <mp-icon icon="close2" color="#a0a0fc" size="{{20}}" data-item="{{index}}" bindtap="deletePropClick"></mp-icon>
       </view>
