@@ -3,7 +3,8 @@
     <view class="addProductOption_prop_container">
       <view wx:for="{{optionPropLength}}" wx:key="{{index}}" class="addProductOption_prop_item">
         <mp-icon icon="close2" color="#a0a0fc" size="{{25}}" data-item="{{index}}" bindtap="propDelClick"></mp-icon>
-        <my-option-prop  data-item="{{index}}"></my-option-prop>
+        <my-option-prop bind:change="change" title="{{item.name}}" propList="{{item.child}}" index="{{index}}"
+          data-item="{{index}}"></my-option-prop>
       </view>
     </view>
 

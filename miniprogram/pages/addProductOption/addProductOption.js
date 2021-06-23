@@ -29,7 +29,7 @@ Page({
   },
 
   /**
-   * 
+   * 删除一条规格属性的点击事件
    * @param {*} e 
    */
   propDelClick(e) {
@@ -39,6 +39,14 @@ Page({
       optionPropLength: this.data.optionPropLength - 1,
       propList
     })
+  },
+
+  /**
+   * 规格信息变化触发的事件
+   * @param {*} e 
+   */
+  change(e) {
+    console.log(e)
   },
   /**
    * 生命周期函数--监听页面加载

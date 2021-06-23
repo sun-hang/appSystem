@@ -3,7 +3,7 @@
     <view class="optionProp_title_box">
       <view class="label">规格</view>
       <view class="input">
-        <input type="text" placeholder="规格名称" />
+        <input type="text" value="{{title}}" bindinput="titleChange" placeholder="规格名称" />
         <mp-icon icon="close2" color="#a0a0fc" style="opacity: 0;" size="{{20}}"></mp-icon>
       </view>
     </view>
@@ -12,7 +12,8 @@
         属性
       </view>
       <view class="input">
-        <input type="text" placeholder="规格属性" data-item="{{index}}" bindinput="inputChange"/>
+        <input type="text" value="{{propList[index]}}" placeholder="规格属性" data-item="{{index}}"
+          bindinput="inputChange" />
         <mp-icon icon="close2" color="#a0a0fc" size="{{20}}" data-item="{{index}}" bindtap="deletePropClick"></mp-icon>
       </view>
 

@@ -1,4 +1,5 @@
-// components/addProductOption/optionProp/optionProp.js
+const util = require('../../../utils/util');
+
 Component({
   /**
    * 组件的属性列表
@@ -11,6 +12,9 @@ Component({
     propList: {
       type: Array,
       value: []
+    },
+    index: {
+      type: Number
     }
   },
 
@@ -20,6 +24,15 @@ Component({
   data: {
     propLength: 0,
     propList: []
+  },
+
+  lifetimes: {
+    attached() {
+      const changeHandle = util.debounce(400)
+      this.setData({
+        changeHandle
+      })
+    }
   },
 
   /**
@@ -53,13 +66,27 @@ Component({
      * @param {*} e 
      */
     inputChange(e) {
-      console.log(e)
       let index = e.currentTarget.dataset.item;
       let value = e.detail.value;
       let propList = this.data.propList;
       propList[index] = value.trim();
       this.setData({
         propList
+      })
+      console.log(this.data.title)
+      this.data.changeHandle(() => {
+        this.triggerEvent('change', { name: this.data.title, child: this.data.propList, i: this.data.index })
+      })
+    },
+
+    /**
+     * 
+     * @param {*} e 
+     */
+    titleChange(e) {
+      let value = e.detail.value.trim();
+      this.data.changeHandle(() => {
+        this.triggerEvent('change', { name: value, child: this.data.propList, i: this.data.index })
       })
     }
   }
