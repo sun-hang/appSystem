@@ -1,13 +1,15 @@
 <view class="addProductOption_container">
   <view class="addProductOption_inner_container">
     <view class="addProductOption_prop_container">
-      <block wx:for="{{optionPropLength}}">
-        <my-option-prop></my-option-prop>
-      </block>
+      <view wx:for="{{optionPropLength}}" wx:key="{{index}}" class="addProductOption_prop_item">
+        <mp-icon icon="close2" color="#a0a0fc" size="{{25}}" data-item="{{index}}" bindtap="propDelClick"></mp-icon>
+        <my-option-prop  data-item="{{index}}"></my-option-prop>
+      </view>
     </view>
 
 
-    <view class="addProductOption_add_btn_box" style="margin-bottom:20rpx;" bindtap="addProp" wx:if="{{(optionPropLength >= 1)}}">
+    <view class="addProductOption_add_btn_box" style="margin-bottom:20rpx;" bindtap="addProp"
+      wx:if="{{(optionPropLength >= 1)}}">
       <mp-icon icon="done2" color="#a0a0fc" size="{{25}}"></mp-icon>
       <view>确认规格属性</view>
     </view>

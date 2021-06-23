@@ -1,1 +1,50 @@
-/* components/addProductOption/optionProp/optionProp.wxss */
+.optionProp_container{
+  width: 100%;
+  font-size: 30rpx;
+}
+.optionProp_inner_container{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10rpx 15rpx;
+}
+.optionProp_title_box{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15rpx;
+  padding-bottom: 15rpx;
+  border-bottom: 1px solid #eee;
+}
+.optionProp_container .label{
+  font-weight: bold;
+}
+.optionProp_container .input{
+  text-align: right;
+  display: flex;
+  align-items: center;
+}
+.optionProp_container .input input{
+  margin-right: 10rpx;
+}
+.optionProp_container .input mp-icon{
+  margin-top: -6rpx;
+}
+.optionProp_content_box{
+  display: flex;
+  justify-content: space-between;
+  margin: 25rpx auto;
+}
+.optionProp_addBtn_box{
+  width: 100%;
+  text-align: center;
+  margin-top: 30rpx;
+}
+.optionProp_addBtn_box button{
+  font-size: 30rpx;
+  font-weight: 400;
+  border: 1px solid #ddd;
+}
+.optionProp_content_box .label{
+  font-weight: 400;
+  font-size: 28rpx;
+}

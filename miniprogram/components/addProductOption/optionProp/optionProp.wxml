@@ -4,6 +4,7 @@
       <view class="label">规格</view>
       <view class="input">
         <input type="text" placeholder="规格名称" />
+        <mp-icon icon="close2" color="#a0a0fc" style="opacity: 0;" size="{{20}}"></mp-icon>
       </view>
     </view>
     <view class="optionProp_content_box" wx:for="{{propLength}}" wx:key="{{index}}">
@@ -12,12 +13,12 @@
       </view>
       <view class="input">
         <input type="text" placeholder="规格属性" data-item="{{index}}" bindinput="inputChange"/>
-        <mp-icon icon="close2" color="#2b2b2b" size="{{20}}" data-item="{{index}}" bindtap="deletePropClick"></mp-icon>
+        <mp-icon icon="close2" color="#a0a0fc" size="{{20}}" data-item="{{index}}" bindtap="deletePropClick"></mp-icon>
       </view>
 
     </view>
     <view class="optionProp_addBtn_box">
-      <button bindtap="addPropClick">添加属性</button>
+      <button bindtap="addPropClick" size="mini">添加属性</button>
     </view>
   </view>
 </view>
