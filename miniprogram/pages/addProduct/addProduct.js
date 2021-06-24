@@ -230,11 +230,26 @@ Page({
    * @param {*} e 
    */
   addClick(e) {
-    if (!this.data.detailValue) {
-      this.setData({
-        error: "商品详情为空"
-      })
+    const product = getProductObject.call(this);
+    let result = verificationProduct.call(this, product);
+    if (!result) {
+      return;
     }
+    wx.showLoading({
+      title: '商品上传中',
+      mask: true
+    })
+    api.addProduct(product, (err, res) => {
+      if (res) {
+        wx.hideLoading({
+          success: (res) => {
+            wx.navigateTo({
+              url: '../home/home',
+            })
+          },
+        })
+      }
+    })
   },
 
   /**
@@ -285,32 +300,37 @@ Page({
    */
   onLoad: function (options) {
     let item = options.item;
+    const event = this.getOpenerEventChannel();
+    const that = this;
+    try {
+      event.on('data', (item) => {
+        that.setData({
+          files: item.imgs.map(item => PATH + item), //图片上传列表图片地址
+          imgs: item.imgs, //上传后返回的地址
+          titleValue: item.productName, // 商品标题文本
+          detailValue: item.detail, //商品详情的文本
+          selectTags: item.tag.split(','), //选中的标签内容可以时多个
+          priceValue: item.currentPric, //商品价格
+          originPriceValue: item.originPric, //商品原价
+          stockValue: item.stock, //商品库存
+          productOption: item.options, //商品规格信息
+          productOptionDetail: item.optionsDetail, // 商品规格详情
+          productState: !item.state, //是否上架
+          detailIsShow: Boolean(item.detail), //详情文本域是否显示
+          _id: item._id
+        })
+      })
+    } catch (error) {
+
+    }
+
     /**
      * 如果传值的话进行修改
      */
-    if (item && item._id) {
-      this.setData({
-        files: item.imgs.map(item => PATH + item), //图片上传列表图片地址
-        imgs: item.imgs, //上传后返回的地址
-        titleValue: item.productName, // 商品标题文本
-        detailValue: item.detail, //商品详情的文本
-        selectTags: item.tag.split(','), //选中的标签内容可以时多个
-        priceValue: item.currentPric, //商品价格
-        originPriceValue: item.originPric, //商品原价
-        stockValue: item.stock, //商品库存
-        productOption: item.options, //商品规格信息
-        productOptionDetail: item.optionsDetail, // 商品规格详情
-        productState: Boolean(item.state), //是否上架
-        detailIsShow: Boolean(item.detail), //详情文本域是否显示
-        selectFile: this.selectFile.bind(this),
-        uplaodFile: this.uplaodFile.bind(this)
-      })
-    } else {
-      this.setData({
-        selectFile: this.selectFile.bind(this),
-        uplaodFile: this.uplaodFile.bind(this)
-      })
-    }
+    this.setData({
+      selectFile: this.selectFile.bind(this),
+      uplaodFile: this.uplaodFile.bind(this)
+    })
 
   },
 
@@ -376,3 +396,75 @@ Page({
 
   }
 })
+
+/**
+ * 验证商品对象的数据正确性
+ * @param {Object} data 
+ */
+function verificationProduct(data) {
+  if (!data.productName) {
+    this.setData({
+      error: '商品标题未填写'
+    })
+    return false;
+  } else if (data.productName.length < 2) {
+    this.setData({
+      error: "商品标题字数少于二位"
+    })
+    return false
+  } else if (!data.currentPric) {
+    this.setData({
+      error: '商品价格未填写'
+    })
+    return false;
+  } else if (data.currentPric < 0) {
+    this.setData({
+      error: '商品价格填写小于零不符合规格'
+    })
+    return false;
+  } else if (data.imgs.length == 0) {
+    this.setData({
+      error: '商品图片未上传'
+    })
+    return false;
+  } else if (!data.detail) {
+    this.setData({
+      error: '商品详情未填写'
+    })
+    return false;
+  } else if (!data.tag) {
+    this.setData({
+      error: '商品类目未选择'
+    })
+    return false;
+  } else if (!data.stock) {
+    this.setData({
+      error: '商品库存未填写'
+    })
+    return false;
+  } else if (data.stock < 0) {
+    this.setData({
+      error: '商品库存填写不符合规格'
+    })
+    return false;
+  }
+  return true;
+}
+
+/**
+ * 返回一个商品对象
+ */
+function getProductObject() {
+  return {
+    productName: this.data.titleValue,
+    originPric: this.data.originPriceValue,
+    currentPric: this.data.priceValue,
+    imgs: this.data.imgs,
+    detail: this.data.detailValue,
+    tag: this.data.selectTags.join(','),
+    stock: this.data.stockValue,
+    options: this.data.productOption,
+    state: this.data.productState ? 0 : 1,
+    optionsDetail: this.data.productOptionDetail
+  }
+}

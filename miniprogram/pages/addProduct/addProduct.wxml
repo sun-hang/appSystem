@@ -112,7 +112,7 @@
         <text bindtap="addDetailClick" wx:if="{{!detailIsShow}}">添加详情</text>
       </view>
       <view class="btns_box">
-        <text wx:if="{{!index}}" bindtap="addClick">添加商品</text>
+        <text wx:if="{{!_id}}" bindtap="addClick">添加商品</text>
         <text wx:else bindtap="setClick">确认修改</text>
       </view>
     </view>
