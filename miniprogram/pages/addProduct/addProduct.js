@@ -259,7 +259,7 @@ Page({
         }
       },
       success(res) {
-        console.log('打通成功')
+        res.eventChannel.emit('data', { propDetailList: that.data.productOptionDetail, propList: that.data.productOption })
       }
     })
   },

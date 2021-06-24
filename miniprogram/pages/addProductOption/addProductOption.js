@@ -7,11 +7,12 @@ Page({
   data: {
     optionPropLength: 0,
     propList: [], //规格对象数组
-    error: ""
+    error: "",
+    propDetailList: []
   },
 
   click() {
-    const event = this.getOpenerEventChannel();
+
     event.emit('data', {
       data: 1
     })
@@ -54,7 +55,6 @@ Page({
    * @param {*} e 
    */
   change(e) {
-    console.log(e)
     let data = e.detail;
     let propList = this.data.propList;
     propList[data.i] = {
@@ -72,12 +72,13 @@ Page({
    */
   confirmPropClick(e) {
     let propList = this.data.propList;
-    console.log((!verificationPropList.call(this, propList)))
     if ((!verificationPropList.call(this, propList))) {
-      console.log('没通过')
       return
     }
-    console.log('验证通过')
+    let arr = getPropDetailList(propList);
+    this.setData({
+      propDetailList: arr
+    })
   },
 
   /**
@@ -89,11 +90,65 @@ Page({
       error: ''
     })
   },
+
+  /**
+   * 规格详情文本框变化事件
+   * @param {*} e 
+   */
+  detailInputChange(e) {
+    let key = e.currentTarget.dataset.name;
+    let index = e.currentTarget.dataset.item;
+    let propDetailList = this.data.propDetailList;
+    propDetailList[index][key] = +e.detail.value;
+    this.setData({
+      propDetailList
+    })
+  },
+
+  /**
+   * 最后的保存
+   * @param {*} e 
+   */
+  saveClick(e) {
+    let propDetailList = this.data.propDetailList;
+    if (propDetailList.length == 0) {
+      this.setData({
+        error: "规格详情列表为空"
+      })
+      return;
+    }
+    for (let i = 0; i < propDetailList.length; i++) {
+      const item = propDetailList[i];
+      //库存可以为零，价格不能为零
+      if (!item.price) {
+        this.setData({
+          error: `规格详情列表第${i + 1}条的价格为空;`
+        })
+        return;
+      } else if (!item.total && item.total != 0) {
+        this.setData({
+          error: `规格详情列表第${i + 1}条的库存为未填写;`
+        })
+        return;
+      }
+    }
+    this.data.event.emit('data', { propDetailList: this.data.propDetailList, propList: this.data.propList })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const event = this.getOpenerEventChannel();
+    this.setData({
+      event
+    })
+    event.on('data', (data) => {
+      this.setData({
+        propDetailList: data.propDetailList,
+        propList: data.propList,
+        optionPropLength: data.propList.length
+      })
+    })
   },
 
   /**
@@ -196,14 +251,22 @@ function getPropDetailList(propList) {
     propList[0].child.forEach(item => {
       arr.push({
         type: item,
-        price: 0,
-        total: 0
+        price: null,
+        total: null
       })
     })
     return arr;
   }
-  for (let i = 0; i < propList.length; i++) {
-    const item = propList[i];
-
+  for (let i = 0; i < propList[0].child.length; i++) {
+    const item1 = propList[0].child[i];
+    for (let j = 0; j < propList[1].child.length; j++) {
+      const item2 = propList[1].child[j];
+      arr.push({
+        type: item1 + '-' + item2,
+        price: null,
+        total: null
+      })
+    }
   }
+  return arr;
 }

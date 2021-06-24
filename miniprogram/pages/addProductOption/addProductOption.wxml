@@ -3,8 +3,8 @@
     <view class="addProductOption_prop_container">
       <view wx:for="{{optionPropLength}}" wx:key="{{index}}" class="addProductOption_prop_item">
         <mp-icon icon="close2" color="#a0a0fc" size="{{25}}" data-item="{{index}}" bindtap="propDelClick"></mp-icon>
-        <my-option-prop bind:change="change" title="{{propList[index].name}}" propList="{{propList[index].child}}" index="{{index}}"
-          data-item="{{index}}"></my-option-prop>
+        <my-option-prop bind:change="change" title="{{propList[index].name}}" propList="{{propList[index].child}}"
+          index="{{index}}" data-item="{{index}}"></my-option-prop>
       </view>
     </view>
 
@@ -19,6 +19,38 @@
       <mp-icon icon="add" color="#a0a0fc" size="{{25}}"></mp-icon>
       <view>添加商品规格</view>
     </view>
+
+    <!-- 商品规格详情 -->
+    <view class="addProductOption_detail_container">
+      <view class="detail_item_box" wx:for="{{propDetailList}}">
+        <view class="title">{{item.type}}</view>
+        <view class="content_box">
+          <view class="input_box">
+            <view class="label">
+              价格
+            </view>
+            <view class="input">
+              <input type="number" placeholder="价格" value="{{item.price}}" data-name="price"
+                bindinput="detailInputChange" data-item="{{index}}" />
+              <view>元</view>
+            </view>
+          </view>
+          <view class="input_box">
+            <view class="label">
+              库存
+            </view>
+            <view class="input">
+              <input type="number" placeholder="库存" value="{{item.total}}" data-name="total" data-item="{{index}}"
+                bindinput="detailInputChange" />
+              <view>件</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
   </view>
+</view>
+<view class="addProductOption_bottom_btn_container">
+  <button type="primary" bindtap="saveClick">保存当前规格信息</button>
 </view>
 <mp-toptips msg="{{error}}" type="error" show="{{error}}" bindhide="errorHide"></mp-toptips>
