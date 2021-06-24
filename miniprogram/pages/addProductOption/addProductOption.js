@@ -133,6 +133,9 @@ Page({
       }
     }
     this.data.event.emit('data', { propDetailList: this.data.propDetailList, propList: this.data.propList })
+    wx.navigateBack({
+      delta: 1
+    })
   },
   /**
    * 生命周期函数--监听页面加载

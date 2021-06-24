@@ -1,4 +1,6 @@
 const api = require('../../utils/api')
+// let path = 'http://127.0.0.1:529/';
+const PATH = 'http://kf3.xyz/';
 Page({
 
   /**
@@ -101,9 +103,7 @@ Page({
           imgs: data
         })
         data = data.map(item => {
-          // let path = 'http://127.0.0.1:529/';
-          let path = 'http://kf3.xyz/';
-          return path + item;
+          return PATH + item;
         })
         res({
           urls: data
@@ -255,11 +255,17 @@ Page({
       url: '../addProductOption/addProductOption',
       events: {
         data(data) {
-          console.log(data)
+          that.setData({
+            productOption: data.propList,
+            productOptionDetail: data.propDetailList
+          })
         }
       },
       success(res) {
-        res.eventChannel.emit('data', { propDetailList: that.data.productOptionDetail, propList: that.data.productOption })
+        res.eventChannel.emit('data', {
+          propDetailList: that.data.productOptionDetail,
+          propList: that.data.productOption
+        })
       }
     })
   },
@@ -278,13 +284,34 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let item = options.item;
     /**
      * 如果传值的话进行修改
      */
-    this.setData({
-      selectFile: this.selectFile.bind(this),
-      uplaodFile: this.uplaodFile.bind(this)
-    })
+    if (item && item._id) {
+      this.setData({
+        files: item.imgs.map(item => PATH + item), //图片上传列表图片地址
+        imgs: item.imgs, //上传后返回的地址
+        titleValue: item.productName, // 商品标题文本
+        detailValue: item.detail, //商品详情的文本
+        selectTags: item.tag.split(','), //选中的标签内容可以时多个
+        priceValue: item.currentPric, //商品价格
+        originPriceValue: item.originPric, //商品原价
+        stockValue: item.stock, //商品库存
+        productOption: item.options, //商品规格信息
+        productOptionDetail: item.optionsDetail, // 商品规格详情
+        productState: Boolean(item.state), //是否上架
+        detailIsShow: Boolean(item.detail), //详情文本域是否显示
+        selectFile: this.selectFile.bind(this),
+        uplaodFile: this.uplaodFile.bind(this)
+      })
+    } else {
+      this.setData({
+        selectFile: this.selectFile.bind(this),
+        uplaodFile: this.uplaodFile.bind(this)
+      })
+    }
+
   },
 
   /**
