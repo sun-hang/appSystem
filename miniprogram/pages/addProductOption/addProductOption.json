@@ -2,7 +2,6 @@
   "usingComponents": {
     "mp-icon": "weui-miniprogram/icon/icon",
     "my-option-prop": "../../components/addProductOption/optionProp/optionProp",
-    "my-option-detail": "../../components/addProductOption/optionDetail/optionDetail",
     "mp-toptips": "weui-miniprogram/toptips/toptips"
   }
 }

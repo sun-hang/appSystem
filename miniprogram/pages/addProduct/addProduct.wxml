@@ -31,7 +31,7 @@
           价格
         </view>
         <view class="right">
-          <input type="number" placeholder="请输入价格" />元
+          <input type="number" placeholder="请输入价格" data-name="priceValue" bindinput="contentInputChange" />元
         </view>
       </view>
 
@@ -42,7 +42,7 @@
           原价
         </view>
         <view class="right">
-          <input type="number" placeholder="请输入原价" />元
+          <input type="number" placeholder="请输入原价" data-name="originPriceValue" bindinput="contentInputChange" />元
         </view>
       </view>
 
@@ -53,7 +53,7 @@
           库存
         </view>
         <view class="right">
-          <input type="number" placeholder="请输入库存" />件
+          <input type="number" placeholder="请输入库存" data-name="stockValue" bindinput="contentInputChange" />件
         </view>
       </view>
     </view>
@@ -101,8 +101,31 @@
     </view>
 
     <!-- 规格项，添加以后会显示 -->
-    <view class="product_option_container">
-
+    <view class="product_option_container" wx:if="{{productOptionDetail.length > 0}}" bindtap="optionClick">
+      <view class="option_title_box">
+        <view class="left">
+          <text class="required" style="opacity: 0;">*</text>
+          规格
+        </view>
+        <view class="right">
+          <mp-icon icon="arrow" color="#a7a4a4" size="{{12}}"></mp-icon>
+        </view>
+      </view>
+      <view class="option_content_box">
+        <view class="option_item" wx:for="{{productOptionDetail}}">
+          <view class="option_item_name">
+            <view class="name">
+              {{item.type}}
+            </view>
+            <view class="price">
+              ￥{{item.price}}
+            </view>
+          </view>
+          <view class="stock_box">
+            库存{{item.total}}件
+          </view>
+        </view>
+      </view>
     </view>
 
     <!-- 最底部按钮菜单 -->

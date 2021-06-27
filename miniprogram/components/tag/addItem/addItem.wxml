@@ -1,0 +1,12 @@
+<view class="addItem_container">
+  <view class="addItem_inner_container">
+    <view class="addItem_text_box" wx:if="{{!isShow}}" bindtap="bindtap">
+      <mp-icon icon="add" color="#a0a0fc" size="{{20}}" style="margin-right:3rpx; margin-top:-6rpx;"></mp-icon>
+      <slot></slot>
+    </view>
+    <view class="addItem_input_box" wx:else>
+      <input type="text" placeholder="请输入" focus="{{isShow}}" confirm-type="done" bindconfirm="bindconfirm" />
+      <mp-icon icon="close" color="#a0a0fc" size="{{20}}" style=" margin-top:-6rpx;" bindtap="bindblur"></mp-icon>
+    </view>
+  </view>
+</view>

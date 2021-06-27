@@ -59,6 +59,12 @@
           "pathName": "pages/addProductOption/addProductOption",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/tag/tag",
+          "pathName": "pages/tag/tag",
+          "query": "",
+          "scene": null
         }
       ]
     }

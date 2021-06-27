@@ -1,1 +1,62 @@
-/* miniprogram/pages/tag/tag.wxss */
+.tag_container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.tag_inner_container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.tag_title_container {
+  text-align: center;
+  height: 60rpx;
+  font-weight: bold;
+  line-height: 60rpx;
+}
+
+.tag_content_container {
+  padding: 20rpx 0;
+  box-sizing: border-box;
+  height: calc(100% - 60rpx);
+  display: flex;
+}
+
+.tag_left_menu_box {
+  text-align: center;
+  width: 26%;
+  font-size: 30rpx;
+}
+
+.menu_item_box {
+  margin: 20rpx 0;
+  box-sizing: border-box;
+  border-left: 4px solid transparent;
+}
+
+.menu_item_box.active {
+  border-left-color: rgb(148, 24, 5);
+}
+
+.menu_item_box text {
+  word-wrap: break-word;
+}
+
+.tag_right_center_box {
+  width: 74%;
+  height: 100%;
+  overflow: auto;
+  padding-top: 20rpx;
+  box-sizing: border-box;
+}
+
+.tag_right_center_box::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.tag_right_center_box my-tag-item {
+  float: left;
+  margin: 15rpx 0;
+}

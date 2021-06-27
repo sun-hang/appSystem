@@ -243,8 +243,8 @@ Page({
       if (res) {
         wx.hideLoading({
           success: (res) => {
-            wx.navigateTo({
-              url: '../home/home',
+            wx.switchTab({
+              url: 'pages/home/home',
             })
           },
         })
@@ -292,6 +292,18 @@ Page({
   addDetailClick(e) {
     this.setData({
       detailIsShow: true
+    })
+  },
+
+  /**
+   * 中心区域价格等文本框文本变换事件
+   * @param {*} e 
+   */
+  contentInputChange(e) {
+    let name = e.currentTarget.dataset.name;
+    let value = e.detail.value;
+    this.setData({
+      [name]: value
     })
   },
 
@@ -402,6 +414,7 @@ Page({
  * @param {Object} data 
  */
 function verificationProduct(data) {
+  console.log(data)
   if (!data.productName) {
     this.setData({
       error: '商品标题未填写'

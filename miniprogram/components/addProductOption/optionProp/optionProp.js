@@ -43,7 +43,8 @@ Component({
     },
     propList(props) {
       this.setData({
-        props
+        props,
+        propLength: props.length
       })
     }
   },
