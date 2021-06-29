@@ -19,7 +19,6 @@ Component({
    */
   methods: {
     bindconfirm(e) {
-      console.log(e)
       let value = e.detail.value;
       this.triggerEvent('done', value);
       this.setData({

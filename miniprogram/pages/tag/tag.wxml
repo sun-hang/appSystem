@@ -12,14 +12,14 @@
           </mp-slideview>
         </view>
         <view class="menu_item_box">
-          <my-add-item style="width:100%;">添加</my-add-item>
+          <my-add-item style="width:100%;" bind:done="addTagTitle">添加</my-add-item>
         </view>
       </view>
       <view class="tag_right_center_box">
-        <my-tag-item bind:close="tagItemClose" wx:for="{{childList}}" tag="{{item}}" wx:key="{{index}}"
-          index="{{index}}"></my-tag-item>
+        <my-tag-item bind:close="tagItemClose" wx:for-index="i" wx:for="{{childList}}" tag="{{item}}" wx:key="{{i}}"
+          index="{{i}}"></my-tag-item>
         <view style="float:left; width:50%;margin: 25rpx 20rpx;">
-          <my-add-item style="width:100%;">添加</my-add-item>
+          <my-add-item style="width:100%;" bind:done="addTagItem">添加</my-add-item>
         </view>
       </view>
     </view>

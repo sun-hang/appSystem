@@ -17,7 +17,7 @@ Page({
   },
 
   /**
-   * 
+   * 标签列表单个标签删除事件
    * @param {*} e 
    */
   tagItemClose(e) {
@@ -33,9 +33,27 @@ Page({
           childList.splice(childIndex, 1);
           let originTags = that.data.originTags;
           originTags[that.data.currentIndex].child = childList;
-          that.setData({
-            originTags,
-            childList
+          let desc = originTags[that.data.currentIndex];
+          wx.showLoading({
+            title: '删除中',
+          })
+          api.setTag(desc, (err, res) => {
+            wx.hideLoading({})
+            if (err) {
+              wx.showToast({
+                title: '删除失败',
+              })
+              return
+            }
+            if (res) {
+              that.setData({
+                originTags,
+                childList
+              })
+              wx.showToast({
+                title: '删除成功',
+              })
+            }
           })
         }
       }
@@ -58,6 +76,136 @@ Page({
       childList,
       currentTag,
       currentIndex: index
+    })
+  },
+
+  /**
+   * 标签左滑删除事件
+   * @param {*} e 
+   */
+  slideButtonTap(e) {
+    const index = e.currentTarget.dataset.index;
+    let _id = this.data.originTags[index]._id;
+    let title = this.data.originTags[index].title;
+    const that = this;
+
+    wx.showModal({
+      cancelColor: 'cancelColor',
+      title: "提示",
+      content: `确认删除${title}吗？`,
+      confirmText: "删除",
+      success(res) {
+        if (res) {
+          if (res.confirm) {
+            wx.showLoading({
+              title: '删除中',
+            })
+            api.removeTag(_id, (err, res) => {
+              wx.hideLoading({})
+              if (err) {
+                wx.showToast({
+                  title: '删除失败',
+                })
+                return;
+              }
+
+              if (res) {
+                getTags.call(that);
+                wx.showToast({
+                  title: '删除成功',
+                })
+              }
+
+            })
+          }
+        }
+      }
+    })
+  },
+
+  /**
+   * 添加标签一级分类
+   * @param {*} e 
+   */
+  addTagTitle(e) {
+    let value = e.detail.trim();
+    let that = this;
+    wx.showModal({
+      title: "提示",
+      content: `确认添加${value}为标签吗？`,
+      success(res) {
+        if (res.confirm) {
+          wx.showLoading({
+            title: '上传中',
+          })
+          api.addTag({
+            title: value,
+            child: []
+          }, (err, res) => {
+            wx.hideLoading({})
+            if (err) {
+              wx.showToast({
+                title: '添加失败',
+              })
+              return;
+            }
+            if (res) {
+              that.setData({
+                originTags: [...that.data.originTags, res.data]
+              })
+              wx.showToast({
+                title: '添加成功',
+              })
+            }
+          })
+        }
+      }
+    })
+  },
+
+  /**
+   * 添加标签二级标题
+   * @param {*} e 
+   */
+  addTagItem(e) {
+    const value = e.detail.trim();
+    const index = this.data.currentIndex;
+    const originTag = this.data.originTags[index];
+    const originTags = this.data.originTags;
+    const that = this;
+    originTag.child.push(value);
+    originTag.child = [...new Set(originTag.child)]
+    originTags[index] = originTag;
+    wx.showModal({
+      confirmText: "添加",
+      title: "提示",
+      content: `确认添加${value}吗？`,
+      success(res) {
+        if (res.confirm) {
+          wx.showLoading({
+            title: '上传中',
+          })
+          api.setTag(originTag, (err, res) => {
+            wx.hideLoading({})
+            if (err) {
+              wx.showToast({
+                title: '添加失败',
+              })
+              return;
+            }
+            if (res) {
+              that.setData({
+                originTags,
+                childList: originTag.child
+              })
+              wx.showToast({
+                title: '添加成功',
+              })
+
+            }
+          })
+        }
+      }
     })
   },
   /**
@@ -123,7 +271,8 @@ function getTags(index = 0) {
       this.setData({
         originTags: res.data,
         childList: res.data[index].child,
-        currentTag: res.data[index].title
+        currentTag: res.data[index].title,
+        currentIndex: index
       })
     }
   })

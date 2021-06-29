@@ -16,4 +16,6 @@
   top: -24rpx;
   right: -18rpx;
   cursor: pointer;
+  background-color: #fff;
+  border-radius: 50%;
 }
