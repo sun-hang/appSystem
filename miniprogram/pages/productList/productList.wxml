@@ -1,6 +1,9 @@
 <my-page-nav-top bind:searchClick="searchClick"></my-page-nav-top>
-<view class="orderList_container">
-  <view class="orderList_inner_container" style="margin-top:{{navHeight}}px;">
+<view class="productList_container">
+  <view class="productList_inner_container" style="margin-top:{{navHeight}}px;">
     <my-nav-menu contentList="{{titleMenu}}" bind:changeTag="changeTag" index="{{index}}"></my-nav-menu>
+    <view class="productList_content_box">
+      <my-product-list productList="{{productList}}"></my-product-list>
+    </view>
   </view>
 </view>

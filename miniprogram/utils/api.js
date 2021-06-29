@@ -220,7 +220,7 @@ module.exports.removeProduct = (_id, callback = () => {}) => {
  * @param {Number} ctime 排序规则 用于根据创建时间排序 -1为倒叙 1为正序
  */
 module.exports.getProductStateList = (state, page = 1, size = 10, ctime = -1, callback = () => {}) => {
-  let path = `/api/product?state=${state}&page=${page}&size=${size}&ctime=${ctime}`;
+  let path = `/api/product/state?state=${state}&page=${page}&size=${size}&ctime=${ctime}`;
 
   wx.request({
     url: url + path,
