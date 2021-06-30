@@ -1,2 +1,5 @@
-<!--components/product/productList/productList.wxml-->
-<text>components/product/productList/productList.wxml</text>
+<view class="productList_container">
+  <view class="productList_inner_container">
+    <my-product-item wx:for="{{list}}" item="{{item}}"></my-product-item>
+  </view>
+</view>

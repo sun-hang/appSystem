@@ -1,2 +1,22 @@
-<!--components/product/productItem/productItem.wxml-->
-<text>components/product/productItem/productItem.wxml</text>
+<view class="productItem_container">
+  <view class="productItem_inner_container">
+    <view class="title_box">
+      <text>商品编号：{{item._id}}</text>
+    </view>
+    <view class="content">
+      <view class="img_box">
+        <image src="http://kf3.xyz/{{item.imgs[0]}}" lazy-load></image>
+      </view>
+      <view class="text_box">
+        <view class="productName">{{item.productName}}</view>
+        <view class="price_stock">
+          <view class="price">{{item.currentPric}}</view>
+          <view class="stock">{{item.stock}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="btns">
+
+    </view>
+  </view>
+</view>
